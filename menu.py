@@ -5,29 +5,27 @@ def scdl_time():
     scdl_day_etr.destroy()
     scdl_day_etr.destroy()
 
-    scdl_time_etr = tk.Entry(root, width=50)
-    scdl_time_btn = tk.Button(root, text="OK", font=("", 25), command=scdl_)
+    scdl_time_etr.pack(pady=250)
+    scdl_time_btn.pack()
 
 def scdl_day():
     scdl_month_etr.destry()
     scdl_month_etr.destry()
 
-    scdl_day_etr = tk.Entry(root, width=50)
-    scdl_day_btn = tk.Button(root, text="OK", font=("", 25), command=scdl_time)
+    scdl_day_etr.pack(pady=250)
+    scdl_day_btn.pack()
 
 def scdl_month_():
     scdl_year_lbl.destroy()
     scdl_year_btn.destroy()
-    
-    scdl_month_etr = tk.Entry(root, text="", font=("", 25), width=50)
-    scdl_month_btn = tk.Button(root, text="OK", font=("", 25), command=scdl_day)
+
+    scdl_month_etr.pack(pady=250)
+    scdl_month_btn.pack()
 
 def scdl_year():
     scdl_btn.destroy()
     talk_btn.destroy()
 
-    #scdl_year_lbl = tk.Entry(root, font=("", 25), width=20)
-    #scdl_year_btn = tk.Button(root, text="OK", font=("", 25), command=scdl_month)
     scdl_year_lbl.pack(pady=250)
     scdl_year_btn.pack()
 
@@ -38,6 +36,15 @@ def scdl_month():
     scdl_year_btn.destroy()
 
 root = tk.Tk()
+
+scdl_time_etr = tk.Entry(root, width=50)
+scdl_time_btn = tk.Button(root, text="OK", font=("", 25), command=scdl_)
+
+scdl_day_etr = tk.Entry(root, width=50)
+scdl_day_btn = tk.Button(root, text="OK", font=("", 25), command=scdl_time)
+
+scdl_month_etr = tk.Entry(root, text="", font=("", 25), width=50)
+scdl_month_btn = tk.Button(root, text="OK", font=("", 25), command=scdl_day)
 
 scdl_year_lbl = tk.Entry(root, font=("", 25), width=20)
 scdl_year_btn = tk.Button(root, text="OK", font=("", 25), command=scdl_month)
@@ -53,4 +60,3 @@ talk_btn = tk.Button(root, text="ロボメイトと会話", font=("", 25), comma
 talk_btn.pack()#(anchor = "n")
 
 root.mainloop()
-
