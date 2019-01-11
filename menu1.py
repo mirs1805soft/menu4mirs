@@ -166,6 +166,8 @@ def scdl_fri_finish3():
     scdl_cancel_btn.pack()
 
 def scdl_mon2():
+    scdl_list["after"]["dayofweek"] = "月"
+
     scdl_day2_btn_mon.pack_forget()
     scdl_day2_btn_tue.pack_forget()
     scdl_day2_btn_wed.pack_forget()
@@ -177,6 +179,8 @@ def scdl_mon2():
     scdl_mon2_btn3.pack(pady=10)
 
 def scdl_tue2():
+    scdl_list["after"]["dayofweek"] = "火"
+
     scdl_day2_btn_mon.pack_forget()
     scdl_day2_btn_tue.pack_forget()
     scdl_day2_btn_wed.pack_forget()
@@ -188,6 +192,8 @@ def scdl_tue2():
     scdl_tue2_btn3.pack(pady=10)
 
 def scdl_wed2():
+    scdl_list["after"]["dayofweek"] = "水"
+
     scdl_day2_btn_mon.pack_forget()
     scdl_day2_btn_tue.pack_forget()
     scdl_day2_btn_wed.pack_forget()
@@ -198,6 +204,8 @@ def scdl_wed2():
     scdl_wed2_btn2.pack(pady=10)
 
 def scdl_thu2():
+    scdl_list["after"]["dayofweek"] = "木"
+
     scdl_day2_btn_mon.pack_forget()
     scdl_day2_btn_tue.pack_forget()
     scdl_day2_btn_wed.pack_forget()
@@ -209,6 +217,8 @@ def scdl_thu2():
     scdl_thu2_btn3.pack(pady=10)
 
 def scdl_fri2():
+    scdl_list["after"]["dayofweek"] = "金"
+
     scdl_day2_btn_mon.pack_forget()
     scdl_day2_btn_tue.pack_forget()
     scdl_day2_btn_wed.pack_forget()
@@ -220,6 +230,8 @@ def scdl_fri2():
     scdl_fri2_btn3.pack(pady=10)
 
 def scdl_dayofweek2():
+    scdl_list["after"]["year"] = scdl_day_etr.get()
+
     scdl_day2_etr.pack_forget()
     scdl_day2_btn.pack_forget()
 
@@ -230,6 +242,8 @@ def scdl_dayofweek2():
     scdl_day2_btn_fri.pack(pady=10)
 
 def scdl_day2():
+    scdl_list["after"]["month"] = scdl_month2_etr.get()
+
     scdl_month2_etr.pack_forget()
     scdl_month2_btn.pack_forget()
 
@@ -237,6 +251,8 @@ def scdl_day2():
     scdl_day2_btn.pack()
 
 def scdl_month2():
+    scdl_list["after"]["year"] = scdl_year_etr.get()
+
     scdl_year2_lbl.pack_forget()
     scdl_year2_btn.pack_forget()
 
