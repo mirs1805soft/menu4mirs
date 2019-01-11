@@ -29,7 +29,7 @@ def scdl_cancel():
     talk_btn.pack()#(anchor = "n")
 
 def scdl_mon_finish1():
-    scdl_list["before"]["subject"] = "工学数理演習"
+    scdl_list["after"]["subject"] = "工学数理演習"
 
     scdl_mon2_btn1.pack_forget()
     scdl_mon2_btn2.pack_forget()
@@ -39,7 +39,7 @@ def scdl_mon_finish1():
     scdl_cancel_btn.pack()
 
 def scdl_mon_finish2():
-    scdl_list["before"]["subject"] = "社会と工学"
+    scdl_list["after"]["subject"] = "社会と工学"
 
     scdl_mon2_btn1.pack_forget()
     scdl_mon2_btn2.pack_forget()
@@ -49,7 +49,7 @@ def scdl_mon_finish2():
     scdl_cancel_btn.pack()
 
 def scdl_mon_finish3():
-    scdl_list["before"]["subject"] = "電子機械設計製作"
+    scdl_list["after"]["subject"] = "電子機械設計製作"
 
     scdl_mon2_btn1.pack_forget()
     scdl_mon2_btn2.pack_forget()
@@ -59,7 +59,7 @@ def scdl_mon_finish3():
     scdl_cancel_btn.pack()
 
 def scdl_tue_finish1():
-    scdl_list["before"]["subject"] = "応用数学"
+    scdl_list["after"]["subject"] = "応用数学"
 
     scdl_tue2_btn1.pack_forget()
     scdl_tue2_btn2.pack_forget()
@@ -69,7 +69,7 @@ def scdl_tue_finish1():
     scdl_cancel_btn.pack()
 
 def scdl_tue_finish2():
-    scdl_list["before"]["subject"] = "電磁気学"
+    scdl_list["after"]["subject"] = "電磁気学"
 
     scdl_tue2_btn1.pack_forget()
     scdl_tue2_btn2.pack_forget()
@@ -79,7 +79,7 @@ def scdl_tue_finish2():
     scdl_cancel_btn.pack()
 
 def scdl_tue_finish3():
-    scdl_list["before"]["subject"] = "総合英語"
+    scdl_list["after"]["subject"] = "総合英語"
 
     scdl_tue2_btn1.pack_forget()
     scdl_tue2_btn2.pack_forget()
@@ -89,7 +89,7 @@ def scdl_tue_finish3():
     scdl_cancel_btn.pack()
 
 def scdl_wed_finish1():
-    scdl_list["before"]["subject"] = "システム制御工学"
+    scdl_list["after"]["subject"] = "システム制御工学"
     scdl_wed2_btn1.pack_forget()
     scdl_wed2_btn2.pack_forget()
 
@@ -97,7 +97,7 @@ def scdl_wed_finish1():
     scdl_cancel_btn.pack()
 
 def scdl_wed_finish2():
-    scdl_list["before"]["subject"] = "Java"
+    scdl_list["after"]["subject"] = "Java"
 
     scdl_wed2_btn1.pack_forget()
     scdl_wed2_btn2.pack_forget()
@@ -106,7 +106,7 @@ def scdl_wed_finish2():
     scdl_cancel_btn.pack()
 
 def scdl_thu_finish1():
-    scdl_list["before"]["subject"] = "ドイツ語"
+    scdl_list["after"]["subject"] = "ドイツ語"
 
     scdl_thu2_btn1.pack_forget()
     scdl_thu2_btn2.pack_forget()
@@ -116,7 +116,7 @@ def scdl_thu_finish1():
     scdl_cancel_btn.pack()
 
 def scdl_thu_finish2():
-    scdl_list["before"]["subject"] = "工学数理"
+    scdl_list["after"]["subject"] = "工学数理"
 
     scdl_thu2_btn1.pack_forget()
     scdl_thu2_btn2.pack_forget()
@@ -126,7 +126,7 @@ def scdl_thu_finish2():
     scdl_cancel_btn.pack()
 
 def scdl_thu_finish3():
-    scdl_list["before"]["subject"] = "電子制御工学実験"
+    scdl_list["after"]["subject"] = "電子制御工学実験"
 
     scdl_thu2_btn1.pack_forget()
     scdl_thu2_btn2.pack_forget()
@@ -136,7 +136,7 @@ def scdl_thu_finish3():
     scdl_cancel_btn.pack()
 
 def scdl_fri_finish1():
-    scdl_list["before"]["subject"] = "電磁気学"
+    scdl_list["after"]["subject"] = "電磁気学"
 
     scdl_fri2_btn1.pack_forget()
     scdl_fri2_btn2.pack_forget()
@@ -146,7 +146,7 @@ def scdl_fri_finish1():
     scdl_cancel_btn.pack()
 
 def scdl_fri_finish2():
-    scdl_list["before"]["subject"] = "文学特論"
+    scdl_list["after"]["subject"] = "文学特論"
 
     scdl_fri2_btn1.pack_forget()
     scdl_fri2_btn2.pack_forget()
@@ -156,7 +156,7 @@ def scdl_fri_finish2():
     scdl_cancel_btn.pack()
 
 def scdl_fri_finish3():
-    scdl["before"]["subject"] = "電子機械設計製作"
+    scdl_list["after"]["subject"] = "電子機械設計製作"
 
     scdl_fri2_btn1.pack_forget()
     scdl_fri2_btn2.pack_forget()
@@ -230,7 +230,7 @@ def scdl_fri2():
     scdl_fri2_btn3.pack(pady=10)
 
 def scdl_dayofweek2():
-    scdl_list["after"]["year"] = scdl_day_etr.get()
+    scdl_list["after"]["day"] = scdl_day_etr.get()
 
     scdl_day2_etr.pack_forget()
     scdl_day2_btn.pack_forget()
@@ -253,7 +253,7 @@ def scdl_day2():
 def scdl_month2():
     scdl_list["after"]["year"] = scdl_year_etr.get()
 
-    scdl_year2_lbl.pack_forget()
+    scdl_year2_etr.pack_forget()
     scdl_year2_btn.pack_forget()
 
     scdl_month2_etr.pack(pady=250)
@@ -276,7 +276,7 @@ def scdl_year2_mon2():
     scdl_mon2_btn2.pack_forget()
     scdl_mon2_btn3.pack_forget()
 
-    scdl_year2_lbl.pack(pady=250)
+    scdl_year2_etr.pack(pady=250)
     scdl_year2_btn.pack()
 
 def scdl_year2_mon3():
@@ -286,7 +286,7 @@ def scdl_year2_mon3():
     scdl_mon2_btn2.pack_forget()
     scdl_mon2_btn3.pack_forget()
 
-    scdl_year2_lbl.pack(pady=250)
+    scdl_year2_etr.pack(pady=250)
     scdl_year2_btn.pack()
 
 def scdl_year2_tue1():
@@ -296,7 +296,7 @@ def scdl_year2_tue1():
     scdl_tue_btn2.pack_forget()
     scdl_tue_btn3.pack_forget()
 
-    scdl_year2_lbl.pack(pady=250)
+    scdl_year2_etr.pack(pady=250)
     scdl_year2_btn.pack()
 
 def scdl_year2_tue2():
@@ -306,7 +306,7 @@ def scdl_year2_tue2():
     scdl_tue_btn2.pack_forget()
     scdl_tue_btn3.pack_forget()
 
-    scdl_year2_lbl.pack(pady=250)
+    scdl_year2_etr.pack(pady=250)
     scdl_year2_btn.pack()
 
 def scdl_year2_tue3():
@@ -316,7 +316,7 @@ def scdl_year2_tue3():
     scdl_tue_btn2.pack_forget()
     scdl_tue_btn3.pack_forget()
 
-    scdl_year2_lbl.pack(pady=250)
+    scdl_year2_etr.pack(pady=250)
     scdl_year2_btn.pack()
 
 def scdl_year2_wed1():
@@ -325,7 +325,7 @@ def scdl_year2_wed1():
     scdl_wed_btn1.pack_forget()
     scdl_wed_btn2.pack_forget()
 
-    scdl_year2_lbl.pack(pady=250)
+    scdl_year2_etr.pack(pady=250)
     scdl_year2_btn.pack()
 
 def scdl_year2_wed2():
@@ -334,7 +334,7 @@ def scdl_year2_wed2():
     scdl_wed_btn1.pack_forget()
     scdl_wed_btn2.pack_forget()
 
-    scdl_year2_lbl.pack(pady=250)
+    scdl_year2_etr.pack(pady=250)
     scdl_year2_btn.pack()
 
 def scdl_year2_thu1():
@@ -345,7 +345,7 @@ def scdl_year2_thu1():
     scdl_thu_btn3.pack_forget()
     scdl_thu_btn4.pack_forget()
 
-    scdl_year2_lbl.pack(pady=250)
+    scdl_year2_etr.pack(pady=250)
     scdl_year2_btn.pack()
 
 def scdl_year2_thu2():
@@ -354,9 +354,8 @@ def scdl_year2_thu2():
     scdl_thu_btn1.pack_forget()
     scdl_thu_btn2.pack_forget()
     scdl_thu_btn3.pack_forget()
-    scdl_thu_btn4.pack_forget()
 
-    scdl_year2_lbl.pack(pady=250)
+    scdl_year2_etr.pack(pady=250)
     scdl_year2_btn.pack()
 
 def scdl_year2_thu3():
@@ -365,9 +364,8 @@ def scdl_year2_thu3():
     scdl_thu_btn1.pack_forget()
     scdl_thu_btn2.pack_forget()
     scdl_thu_btn3.pack_forget()
-    scdl_thu_btn4.pack_forget()
 
-    scdl_year2_lbl.pack(pady=250)
+    scdl_year2_etr.pack(pady=250)
     scdl_year2_btn.pack()
 
 def scdl_year2_fri1():
@@ -376,9 +374,8 @@ def scdl_year2_fri1():
     scdl_fri_btn1.pack_forget()
     scdl_fri_btn2.pack_forget()
     scdl_fri_btn3.pack_forget()
-    scdl_fri_btn4.pack_forget()
 
-    scdl_year2_lbl.pack(pady=250)
+    scdl_year2_etr.pack(pady=250)
     scdl_year2_btn.pack()
 
 def scdl_year2_fri2():
@@ -388,7 +385,7 @@ def scdl_year2_fri2():
     scdl_fri_btn2.pack_forget()
     scdl_fri_btn3.pack_forget()
 
-    scdl_year2_lbl.pack(pady=250)
+    scdl_year2_etr.pack(pady=250)
     scdl_year2_btn.pack()
 
 def scdl_year2_fri3():
@@ -398,7 +395,7 @@ def scdl_year2_fri3():
     scdl_fri_btn2.pack_forget()
     scdl_fri_btn3.pack_forget()
 
-    scdl_year2_lbl.pack(pady=250)
+    scdl_year2_etr.pack(pady=250)
     scdl_year2_btn.pack()
 
 def scdl_mon():
@@ -489,7 +486,7 @@ def scdl_day():
 def scdl_month():
     scdl_list["before"]["year"] = scdl_year_etr.get()
 
-    scdl_year_lbl.pack_forget()
+    scdl_year_etr.pack_forget()
     scdl_year_btn.pack_forget()
 
     scdl_month_etr.pack(pady=250)
@@ -555,7 +552,7 @@ scdl_thu2_btn4 = tk.Button(root, text="電子制御工学実験", font=("", 25),
 
 scdl_fri2_btn1 = tk.Button(root, text="電磁気学", font=("", 25), command=scdl_fri_finish1)
 scdl_fri2_btn2 = tk.Button(root, text="文学特論", font=("", 25), command=scdl_fri_finish2)
-scdl_fri2_btn4 = tk.Button(root, text="電子機械設計製作", font=("", 25), command=scdl_fri_finish3)
+scdl_fri2_btn3 = tk.Button(root, text="電子機械設計製作", font=("", 25), command=scdl_fri_finish3)
 
 scdl_day2_btn_mon = tk.Button(root, text="月曜日", font=("", 25), command=scdl_mon2)
 scdl_day2_btn_tue = tk.Button(root, text="火曜日", font=("", 25), command=scdl_tue2)
@@ -569,7 +566,7 @@ scdl_day2_btn = tk.Button(root, text="OK", font=("", 25), command=scdl_dayofweek
 scdl_month2_etr = tk.Entry(root, text="", font=("", 25), width=20)
 scdl_month2_btn = tk.Button(root, text="OK", font=("", 25), command=scdl_day2)
 
-scdl_year2_lbl = tk.Entry(root, font=("", 25), width=20)
+scdl_year2_etr = tk.Entry(root, font=("", 25), width=20)
 scdl_year2_btn = tk.Button(root, text="OK", font=("", 25), command=scdl_month2)
 
 scdl_mon_btn1 = tk.Button(root, text="工学数理演習", font=("", 25), command=scdl_year2_mon1)
@@ -589,7 +586,7 @@ scdl_thu_btn3 = tk.Button(root, text="電子制御工学実験", font=("", 25), 
 
 scdl_fri_btn1 = tk.Button(root, text="電磁気学", font=("", 25), command=scdl_year2_fri1)
 scdl_fri_btn2 = tk.Button(root, text="文学特論", font=("", 25), command=scdl_year2_fri2)
-scdl_fri_btn4 = tk.Button(root, text="電子機械設計製作", font=("", 25), command=scdl_year2_fri3)
+scdl_fri_btn3 = tk.Button(root, text="電子機械設計製作", font=("", 25), command=scdl_year2_fri3)
 
 scdl_day_btn_mon = tk.Button(root, text="月曜日", font=("", 25), command=scdl_mon)
 scdl_day_btn_tue = tk.Button(root, text="火曜日", font=("", 25), command=scdl_tue)
