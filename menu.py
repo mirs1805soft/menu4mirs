@@ -45,12 +45,14 @@ def scdl_thu_finish():
     scdl_thu2_btn1.destroy()
     scdl_thu2_btn2.destroy()
     scdl_thu2_btn3.destroy()
+    scdl_thu2_btn3.destroy()
 
     scdl_finish_btn.pack()
 
 def scdl_fri_finish():
     scdl_fri2_btn1.destroy()
     scdl_fri2_btn2.destroy()
+    scdl_fri2_btn3.destroy()
     scdl_fri2_btn3.destroy()
 
     scdl_finish_btn.pack()
@@ -154,7 +156,6 @@ def scdl_year2_tue():
 def scdl_year2_wed():
     scdl_wed_btn1.destroy()
     scdl_wed_btn2.destroy()
-    scdl_wed_btn3.destroy()
 
     scdl_year2_lbl.pack(pady=250)
     scdl_year2_btn.pack()
@@ -162,6 +163,7 @@ def scdl_year2_wed():
 def scdl_year2_thu():
     scdl_thu_btn1.destroy()
     scdl_thu_btn2.destroy()
+    scdl_thu_btn3.destroy()
     scdl_thu_btn3.destroy()
 
     scdl_year2_lbl.pack(pady=250)
@@ -171,6 +173,7 @@ def scdl_year2_fri():
     scdl_fri_btn1.destroy()
     scdl_fri_btn2.destroy()
     scdl_fri_btn3.destroy()
+    scdl_fri_btn4.destroy()
 
     scdl_year2_lbl.pack(pady=250)
     scdl_year2_btn.pack()
