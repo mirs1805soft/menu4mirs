@@ -151,7 +151,7 @@ def scdl_year2_tue():
     scdl_year2_lbl.pack(pady=250)
     scdl_year2_btn.pack()
 
-def scdl_year_wed():
+def scdl_year2_wed():
     scdl_wed_btn1.destroy()
     scdl_wed_btn2.destroy()
     scdl_wed_btn3.destroy()
@@ -242,8 +242,8 @@ def scdl_dayofweek():
     scdl_day_btn_fri.pack(pady=10)
 
 def scdl_day():
-    scdl_month_etr.destry()
-    scdl_month_etr.destry()
+    scdl_month_etr.destroy()
+    scdl_month_btn.destroy()
 
     scdl_day_etr.pack(pady=250)
     scdl_day_btn.pack()
@@ -283,8 +283,8 @@ scdl_list = {
 }
 
 # jsonファイルの読み込み
-file = open("schedule.json")
-scdl_dic = json.load(file)
+#file = open("schedule.json")
+#scdl_dic = json.load(file)
 
 # ウィンドウの生成
 root = tk.Tk()
@@ -292,8 +292,8 @@ root.title("Menu")
 root.attributes("-zoomed", "1")
 
 # あとで表示するオブジェクト
-scdl_finish_btn1 = tk.Buttun(root, text="編集完了", font=("", 25), command=scdl_finish)
-scdl_finish_btn2 = tk.Buttun(root, text="キャンセル", font=("", 25), command=scdl_cancel)
+scdl_finish_btn1 = tk.Button(root, text="編集完了", font=("", 25), command=scdl_finish)
+scdl_finish_btn2 = tk.Button(root, text="キャンセル", font=("", 25), command=scdl_cancel)
 
 scdl_mon2_btn1 = tk.Button(root, text="工学数理演習", font=("", 25), command=scdl_mon_finish)
 scdl_mon2_btn2 = tk.Button(root, text="社会と工学", font=("", 25), command=scdl_mon_finish)
@@ -322,10 +322,10 @@ scdl_day2_btn_wen = tk.Button(root, text="水曜日", font=("", 25), command=scd
 scdl_day2_btn_thu = tk.Button(root, text="木曜日", font=("", 25), command=scdl_thu2)
 scdl_day2_btn_fri = tk.Button(root, text="金曜日", font=("", 25), command=scdl_fri2)
 
-scdl_day2_etr = tk.Entry(root, width=50)
+scdl_day2_etr = tk.Entry(root, text="", font=("", 25), width=20)
 scdl_day2_btn = tk.Button(root, text="OK", font=("", 25), command=scdl_dayofweek2)
 
-scdl_month2_etr = tk.Entry(root, text="", font=("", 25), width=50)
+scdl_month2_etr = tk.Entry(root, text="", font=("", 25), width=20)
 scdl_month2_btn = tk.Button(root, text="OK", font=("", 25), command=scdl_day2)
 
 scdl_year2_lbl = tk.Entry(root, font=("", 25), width=20)
@@ -358,10 +358,10 @@ scdl_day_btn_wen = tk.Button(root, text="水曜日", font=("", 25), command=scdl
 scdl_day_btn_thu = tk.Button(root, text="木曜日", font=("", 25), command=scdl_thu)
 scdl_day_btn_fri = tk.Button(root, text="金曜日", font=("", 25), command=scdl_fri)
 
-scdl_day_etr = tk.Entry(root, width=50)
+scdl_day_etr = tk.Entry(root, text="", font=("", 25), width=20)
 scdl_day_btn = tk.Button(root, text="OK", font=("", 25), command=scdl_dayofweek)
 
-scdl_month_etr = tk.Entry(root, text="", font=("", 25), width=50)
+scdl_month_etr = tk.Entry(root, text="", font=("", 25), width=20)
 scdl_month_btn = tk.Button(root, text="OK", font=("", 25), command=scdl_day)
 
 scdl_year_lbl = tk.Entry(root, font=("", 25), width=20)
