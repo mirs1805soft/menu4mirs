@@ -7,7 +7,7 @@ import random
 import numpy as np
 from numpy.random import *
 
-def Talk():
+def TalkTalk():
     read_file = open("schedule.json", "r")
     scdl_list = json.load(read_file)
 
