@@ -2237,7 +2237,7 @@ def talk():
 
     p = subprocess.Popen(["./julius_start.sh"], stdout=subprocess.PIPE, shell=True)
     pid = str(p.stdout.read().decode('utf-8'))  # juliusのプロセスIDを取得
-    time.sleep(3)
+    time.sleep(2)
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.connect((host, port))
 

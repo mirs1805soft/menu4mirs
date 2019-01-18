@@ -16,7 +16,7 @@ def scdl_finish():
     json.dump(scdl_list, write_file, indent=4)
 
     root.destroy()
-    subprocess.call("python3 menu2.py".split())
+    subprocess.call("python3 menu1.py".split())
     #scdl_finish_btn.pack_forget()
     #scdl_cancel_btn.pack_forget()
 
@@ -2237,67 +2237,69 @@ def talk():
 
     p = subprocess.Popen(["./julius_start.sh"], stdout=subprocess.PIPE, shell=True)
     pid = str(p.stdout.read().decode('utf-8'))  # juliusのプロセスIDを取得
-    time.sleep(5)
+    time.sleep(2)
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.connect((host, port))
 
     data = ""
     killword = ""
 
+    flag = False
+
     while True:
-        while (1):
-            if '</RECOGOUT>\n.' in data:
-                #data = data + sock.recv(1024)
-                strTemp = ""
-                for line in data.split('\n'):
-                    index = line.find('WORD="')
-                    if index != -1:
-                        line = line[index+6:line.find('"',index+6)]
-                        strTemp += str(line)
+        if '</RECOGOUT>\n.' in data:
+            #data = data + sock.recv(1024)
+            strTemp = ""
+            for line in data.split('\n'):
+                index = line.find('WORD="')
+                if index != -1:
+                    line = line[index+6:line.find('"',index+6)]
+                    strTemp += str(line)
 
-                    elif strTemp == 'おはよう':
-                        if killword != 'おはよう':
-                            print ("Result: " + strTemp)
-                            #os.system("aplay '/home/pi/Music/ohayo.wav'")
-                            subprocess.call('echo "おはよう" | open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp.wav'.split())
-                            killword = "おはよう"
+                elif strTemp == 'おはよう':
+                    if killword != 'おはよう':
+                        print ("Result: " + strTemp)
+                        subprocess.call('echo "おはよう" | sudo open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp.wav'.split())
+                        subprocess.call('aplay ./open_jtalk_tmp.wav'.split())
+                        killword = "おはよう"
+                        flag = True
 
-                    elif strTemp == 'こんにちは':
-                        if killword != "こんにちは":
-                            print ("Result: " + strTemp)
-                            #os.system("aplay '/home/pi/Music/konnichiwa.wav'")
-                            subprocess.call('echo "こんにちは" | open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp.wav'.split())
-                            killword = "こんにちは"
+                elif strTemp == 'こんにちは':
+                    if killword != "こんにちは":
+                        print ("Result: " + strTemp)
+                        subprocess.call('echo "こんにちは" | open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp.wav'.split())
+                        killword = "こんにちは"
 
-                    elif strTemp == 'こんばんは':
-                        if killword != "こんばんは":
-                            print ("Result: " + strTemp)
-                            #os.system("aplay '/home/pi/Music/konbanwa.wav'")
-                            subprocess.call('echo "こんばんは" | open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp.wav'.split())
-                            killword = "こんばんは"
+                elif strTemp == 'こんばんは':
+                    if killword != "こんばんは":
+                        print ("Result: " + strTemp)
+                        subprocess.call('echo "こんばんは" | open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp.wav'.split())
+                        killword = "こんばんは"
 
-                    elif strTemp == 'よていをおしえて':
-                        if killword != "よていをおしえて":
-                            print ("Result: " + strTemp)
-                            #os.system("aplay '/home/pi/Music/konbanwa.wav'")
-                            subprocess.call(voice2talk.split())
-                            killword = "よていをおしえて"
+                elif strTemp == 'よていをおしえて':
+                    if killword != "よていをおしえて":
+                        print ("Result: " + strTemp)
+                        subprocess.call(voice2talk.split())
+                        killword = "よていをおしえて"
 
-                    else:
-                        print("Result:" + strTemp)
-                        i = randint(3)
-                        if i == 0:
-                            print("")
-                            #os.system("aplay: '/home/pi/Music/aizuchi00.wav'")
-                        elif i == 1:
-                            print("")
-                            #os.system("aplay: '/home/pi/Music/aizuchi01.wav'")
-                        elif i == 2:
-                            print("")
-                            #os.system("aplay: '/home/pi/Music/aizuchi02.wav'")
-                    data = ""
-            else:
-                data += str(sock.recv(1024).decode('utf-8'))
+                else:
+                    print("Result:" + strTemp)
+                    i = randint(3)
+                    if i == 0:
+                        print("")
+                    elif i == 1:
+                        print("")
+                    elif i == 2:
+                        print("")
+                data = ""
+
+                if flag == True:
+                    break
+        else:
+            data += str(sock.recv(1024).decode('utf-8'))
+
+        if flag == True:
+            break
 
 scdl_list = {
     "before" : {
