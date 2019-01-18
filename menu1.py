@@ -2229,7 +2229,7 @@ def talk():
     read_file = open("schedule.json", "r")
     scdl_list = json.load(read_file)
 
-    voice = scdl_list["before"]["year"] + "年" + scdl_list["before"]["month"] + "月" + scdl_list["before"]["day"] + "日" + scdl_list["before"]["dayofweek"] + "曜日の" + scdl_list["before"]["subject"] + "が、" + scdl_list["after"]["year"] + "年" + scdl_list["after"]["month"] + "月" + scdl_list["after"]["day"] + "日" + scdl_list["after"]["dayofweek"] + "曜日の" + scdl_list["after"]["subject"] + "と交換です。"
+    voice = scdl_list["before"]["year"] + "年" + scdl_list["before"]["month"] + "月" + scdl_list["before"]["day"] + "日" + scdl_list["before"]["dayofweek"] + "曜日の" + scdl_list["before"]["subject"] + "が" + scdl_list["after"]["year"] + "年" + scdl_list["after"]["month"] + "月" + scdl_list["after"]["day"] + "日" + scdl_list["after"]["dayofweek"] + "曜日の" + scdl_list["after"]["subject"] + "と交換です。"
     voice2talk = "echo '" + voice + "' | open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp.wav"
 
     host = "localhost"
@@ -2259,8 +2259,8 @@ def talk():
                 elif strTemp == 'おはよう':
                     if killword != 'おはよう':
                         print ("Result: " + strTemp)
-                        #subprocess.call('echo "おはよう" | sudo open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp.wav'.split())
-                        subprocess.call(voice2talk.split())
+                        subprocess.call('echo "春夏秋冬" | sudo open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp.wav'.split())
+                        #subprocess.call(voice2talk.split())
                         subprocess.call('aplay ./open_jtalk_tmp.wav'.split())
                         killword = "おはよう"
                         flag = True
