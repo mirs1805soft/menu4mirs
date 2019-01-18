@@ -30,7 +30,7 @@ def Talk():
         while (1):
             if '</RECOGOUT>\n.' in data:
                 #data = data + sock.recv(1024)
-                 strTemp = ""
+                strTemp = ""
                 for line in data.split('\n'):
                     index = line.find('WORD="')
                     if index != -1:
