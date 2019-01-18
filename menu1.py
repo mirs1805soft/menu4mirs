@@ -2245,23 +2245,51 @@ def talk():
     killword = ""
 
     while True:
-        while (string.find(data, "\n.") == -1):
+        if '</RECOGOUT>\n.' in data:
             data = data + sock.recv(1024)
-
-            # 音声XMLデータから、<WORD>を抽出して音声テキスト文に連結する。
             strTemp = ""
             for line in data.split('\n'):
                 index = line.find('WORD="')
-
                 if index != -1:
-                    line = line[index + 6:line.find('"', index + 6)]
-                    if line != "[s]":
-                        strTemp = strTemp + line
+                    line = line[index+6:line.find('"',index+6)]
+                    strTemp += str(line)
 
-            if strTemp == "おはよう":
-                print("結果:" + strTemp)
+                elif strTemp == 'おはよう':
+                    if killword != 'おはよう':
+                        print ("Result: " + strTemp)
+                        subprocess.call('echo "おはよう" | open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp.wav'.split())
+                        killword = "おはよう"
 
-            data = ""
+                elif strTemp == 'こんにちは':
+                    if killword != "こんにちは":
+                        print ("Result: " + strTemp)
+                        subprocess.call('echo "こんにちは" | open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp.wav'.split())
+                        killword = "こんにちは"
+
+                elif strTemp == 'こんばんは':
+                    if killword != "こんばんは":
+                        print ("Result: " + strTemp)
+                        subprocess.call('echo "こんばんは" | open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp.wav'.split())
+                        killword = "こんばんは"
+
+                elif strTemp == 'よていをおしえて':
+                    if killword != "よていをおしえて":
+                        print ("Result: " + strTemp)
+                        subprocess.call(voice2talk.split())
+                        killword = "よていをおしえて"
+
+                else:
+                    print("Result:" + strTemp)
+                    i = randint(3)
+                    if i == 0:
+                        print("")
+                    elif i == 1:
+                        print("")
+                    elif i == 2:
+                        print("")
+                data = ""
+        else:
+                data += str(sock.recv(1024).decode('utf-8'))
 
 scdl_list = {
     "before" : {
