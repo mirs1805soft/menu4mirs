@@ -296,131 +296,131 @@ def scdl2_dayofweek():
     scdl2_day_btn_fri.pack(pady=10)
 
 def scdl2_dayofweek1():
-    scdl_list["before"]["day"] = "1"
+    scdl_list["after"]["day"] = "1"
     scdl2_dayofweek()
 
 def scdl2_dayofweek2():
-    scdl_list["before"]["day"] = "2"
+    scdl_list["after"]["day"] = "2"
     scdl2_dayofweek()
 
 def scdl2_dayofweek3():
-    scdl_list["before"]["day"] = "3"
+    scdl_list["after"]["day"] = "3"
     scdl2_dayofweek()
 
 def scdl2_dayofweek4():
-    scdl_list["before"]["day"] = "4"
+    scdl_list["after"]["day"] = "4"
     scdl2_dayofweek()
 
 def scdl2_dayofweek5():
-    scdl_list["before"]["day"] = "5"
+    scdl_list["after"]["day"] = "5"
     scdl2_dayofweek()
 
 def scdl2_dayofweek6():
-    scdl_list["before"]["day"] = "6"
+    scdl_list["after"]["day"] = "6"
     scdl2_dayofweek()
 
 def scdl2_dayofweek7():
-    scdl_list["before"]["day"] = "7"
+    scdl_list["after"]["day"] = "7"
     scdl2_dayofweek()
 
 def scdl2_dayofweek8():
-    scdl_list["before"]["day"] = "8"
+    scdl_list["after"]["day"] = "8"
     scdl2_dayofweek()
 
 def scdl2_dayofweek9():
-    scdl_list["before"]["day"] = "9"
+    scdl_list["after"]["day"] = "9"
     scdl2_dayofweek()
 
 def scdl2_dayofweek10():
-    scdl_list["before"]["day"] = "10"
+    scdl_list["after"]["day"] = "10"
     scdl2_dayofweek()
 
 def scdl2_dayofweek11():
-    scdl_list["before"]["day"] = "11"
+    scdl_list["after"]["day"] = "11"
     scdl2_dayofweek()
 
 def scdl2_dayofweek12():
-    scdl_list["before"]["day"] = "12"
+    scdl_list["after"]["day"] = "12"
     scdl2_dayofweek()
 
 def scdl2_dayofweek13():
-    scdl_list["before"]["day"] = "13"
+    scdl_list["after"]["day"] = "13"
     scdl2_dayofweek()
 
 def scdl2_dayofweek14():
-    scdl_list["before"]["day"] = "14"
+    scdl_list["after"]["day"] = "14"
     scdl2_dayofweek()
 
 def scdl2_dayofweek15():
-    scdl_list["before"]["day"] = "15"
+    scdl_list["after"]["day"] = "15"
     scdl2_dayofweek()
 
 def scdl2_dayofweek16():
-    scdl_list["before"]["day"] = "16"
+    scdl_list["after"]["day"] = "16"
     scdl2_dayofweek()
 
 def scdl2_dayofweek17():
-    scdl_list["before"]["day"] = "17"
+    scdl_list["after"]["day"] = "17"
     scdl2_dayofweek()
 
 def scdl2_dayofweek18():
-    scdl_list["before"]["day"] = "18"
+    scdl_list["after"]["day"] = "18"
     scdl2_dayofweek()
 
 def scdl2_dayofweek19():
-    scdl_list["before"]["day"] = "19"
+    scdl_list["after"]["day"] = "19"
     scdl2_dayofweek()
 
 def scdl2_dayofweek20():
-    scdl_list["before"]["day"] = "20"
+    scdl_list["after"]["day"] = "20"
     scdl2_dayofweek()
 
 def scdl2_dayofweek21():
-    scdl_list["before"]["day"] = "21"
+    scdl_list["after"]["day"] = "21"
     scdl2_dayofweek()
 
 def scdl2_dayofweek22():
-    scdl_list["before"]["day"] = "22"
+    scdl_list["after"]["day"] = "22"
     scdl2_dayofweek()
 
 def scdl2_dayofweek23():
-    scdl_list["before"]["day"] = "23"
+    scdl_list["after"]["day"] = "23"
     scdl2_dayofweek()
 
 def scdl2_dayofweek24():
-    scdl_list["before"]["day"] = "24"
+    scdl_list["after"]["day"] = "24"
     scdl2_dayofweek()
 
 def scdl2_dayofweek25():
-    scdl_list["before"]["day"] = "25"
+    scdl_list["after"]["day"] = "25"
     scdl2_dayofweek()
 
 def scdl2_dayofweek26():
-    scdl_list["before"]["day"] = "26"
+    scdl_list["after"]["day"] = "26"
     scdl2_dayofweek()
 
 def scdl2_dayofweek27():
-    scdl_list["before"]["day"] = "27"
+    scdl_list["after"]["day"] = "27"
     scdl2_dayofweek()
 
 def scdl2_dayofweek28():
-    scdl_list["before"]["day"] = "28"
+    scdl_list["after"]["day"] = "28"
     scdl2_dayofweek()
 
 def scdl2_dayofweek29():
-    scdl_list["before"]["day"] = "29"
+    scdl_list["after"]["day"] = "29"
     scdl2_dayofweek()
 
 def scdl2_dayofweek30():
-    scdl_list["before"]["day"] = "30"
+    scdl_list["after"]["day"] = "30"
     scdl2_dayofweek()
 
 def scdl2_dayofweek31():
-    scdl_list["before"]["day"] = "31"
+    scdl_list["after"]["day"] = "31"
     scdl2_dayofweek()
 
 def scdl2_day1():
-    scdl_list["before"]["month"] = "1"
+    scdl_list["after"]["month"] = "1"
 
     scdl2_month_lbl.pack_forget()
     scdl2_month_btn1.pack_forget()
@@ -470,7 +470,7 @@ def scdl2_day1():
     scdl2_day_btn31.pack()
 
 def scdl2_day2():
-    scdl_list["before"]["month"] = "2"
+    scdl_list["after"]["month"] = "2"
 
     scdl2_month_lbl.pack_forget()
     scdl2_month_btn1.pack_forget()
@@ -520,7 +520,7 @@ def scdl2_day2():
     scdl2_day_btn31.pack()
 
 def scdl2_day3():
-    scdl_list["before"]["month"] = "3"
+    scdl_list["after"]["month"] = "3"
 
     scdl2_month_lbl.pack_forget()
     scdl2_month_btn1.pack_forget()
@@ -570,7 +570,7 @@ def scdl2_day3():
     scdl2_day_btn31.pack()
 
 def scdl2_day4():
-    scdl_list["before"]["month"] = "4"
+    scdl_list["after"]["month"] = "4"
 
     scdl2_month_lbl.pack_forget()
     scdl2_month_btn1.pack_forget()
@@ -620,7 +620,7 @@ def scdl2_day4():
     scdl2_day_btn31.pack()
 
 def scdl2_day5():
-    scdl_list["before"]["month"] = "5"
+    scdl_list["after"]["month"] = "5"
 
     scdl2_month_lbl.pack_forget()
     scdl2_month_btn1.pack_forget()
@@ -670,7 +670,7 @@ def scdl2_day5():
     scdl2_day_btn31.pack()
 
 def scdl2_day5():
-    scdl_list["before"]["month"] = "5"
+    scdl_list["after"]["month"] = "5"
 
     scdl2_month_lbl.pack_forget()
     scdl2_month_btn1.pack_forget()
@@ -720,7 +720,7 @@ def scdl2_day5():
     scdl2_day_btn31.pack()
 
 def scdl2_day6():
-    scdl_list["before"]["month"] = "6"
+    scdl_list["after"]["month"] = "6"
 
     scdl2_month_lbl.pack_forget()
     scdl2_month_btn1.pack_forget()
@@ -770,7 +770,7 @@ def scdl2_day6():
     scdl2_day_btn31.pack()
 
 def scdl2_day7():
-    scdl_list["before"]["month"] = "7"
+    scdl_list["after"]["month"] = "7"
 
     scdl2_month_lbl.pack_forget()
     scdl2_month_btn1.pack_forget()
@@ -820,7 +820,7 @@ def scdl2_day7():
     scdl2_day_btn31.pack()
 
 def scdl2_day8():
-    scdl_list["before"]["month"] = "8"
+    scdl_list["after"]["month"] = "8"
 
     scdl2_month_lbl.pack_forget()
     scdl2_month_btn1.pack_forget()
@@ -870,7 +870,7 @@ def scdl2_day8():
     scdl2_day_btn31.pack()
 
 def scdl2_day9():
-    scdl_list["before"]["month"] = "9"
+    scdl_list["after"]["month"] = "9"
 
     scdl2_month_lbl.pack_forget()
     scdl2_month_btn1.pack_forget()
@@ -920,7 +920,7 @@ def scdl2_day9():
     scdl2_day_btn31.pack()
 
 def scdl2_day10():
-    scdl_list["before"]["month"] = "10"
+    scdl_list["after"]["month"] = "10"
 
     scdl2_month_lbl.pack_forget()
     scdl2_month_btn1.pack_forget()
@@ -970,7 +970,7 @@ def scdl2_day10():
     scdl2_day_btn31.pack()
 
 def scdl2_day11():
-    scdl_list["before"]["month"] = "11"
+    scdl_list["after"]["month"] = "11"
 
     scdl2_month_lbl.pack_forget()
     scdl2_month_btn1.pack_forget()
@@ -1020,7 +1020,7 @@ def scdl2_day11():
     scdl2_day_btn31.pack()
 
 def scdl2_day12():
-    scdl_list["before"]["month"] = "12"
+    scdl_list["after"]["month"] = "12"
 
     scdl2_month_lbl.pack_forget()
     scdl2_month_btn1.pack_forget()
@@ -1070,7 +1070,7 @@ def scdl2_day12():
     scdl2_day_btn31.pack()
 
 def scdl2_month2019():
-    scdl_list["before"]["year"] = "2019"
+    scdl_list["after"]["year"] = "2019"
 
     scdl2_year_lbl.pack_forget()
     scdl2_year_btn1.pack_forget()
@@ -1091,7 +1091,7 @@ def scdl2_month2019():
     scdl2_month_btn12.pack()
 
 def scdl2_month2020():
-    scdl_list["before"]["year"] = "2020"
+    scdl_list["after"]["year"] = "2020"
 
     scdl2_year_lbl.pack_forget()
     scdl2_year_btn1.pack_forget()
