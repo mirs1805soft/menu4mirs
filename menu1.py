@@ -3,7 +3,7 @@ import tkinter as tk
 import json
 import subprocess
 #from collections import OrderedDict
-from Talk2Mirs import *
+import Talk2Mirs
 
 def scdl_finish():
     subprocess.call("sudo rm schedule.json".split())
@@ -2223,7 +2223,7 @@ def scdl_year():
     scdl_year_btn2.pack()
 
 def talk():
-    TalkTalk()
+    Talk()
 
 scdl_list = {
     "before" : {
