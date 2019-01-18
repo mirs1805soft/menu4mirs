@@ -291,7 +291,7 @@ def scdl2_dayofweek():
     scdl2_dayofweek_lbl.pack(pady=10)
     scdl2_day_btn_mon.pack(pady=10)
     scdl2_day_btn_tue.pack(pady=10)
-    scdl2_day_btn_wen.pack(pady=10)
+    scdl2_day_btn_wed.pack(pady=10)
     scdl2_day_btn_thu.pack(pady=10)
     scdl2_day_btn_fri.pack(pady=10)
 
@@ -2279,7 +2279,7 @@ scdl2_fri_btn3 = tk.Button(root, text="電子機械設計製作", font=("", 25),
 scdl2_dayofweek_lbl = tk.Label(root, text="曜日を選んでください。", font=("", 25))
 scdl2_day_btn_mon = tk.Button(root, text="月曜日", font=("", 25), command=scdl2_mon)
 scdl2_day_btn_tue = tk.Button(root, text="火曜日", font=("", 25), command=scdl2_tue)
-scdl2_day_btn_wen = tk.Button(root, text="水曜日", font=("", 25), command=scdl2_wed)
+scdl2_day_btn_wed = tk.Button(root, text="水曜日", font=("", 25), command=scdl2_wed)
 scdl2_day_btn_thu = tk.Button(root, text="木曜日", font=("", 25), command=scdl2_thu)
 scdl2_day_btn_fri = tk.Button(root, text="金曜日", font=("", 25), command=scdl2_fri)
 
@@ -2360,7 +2360,7 @@ scdl_fri_btn3 = tk.Button(root, text="電子機械設計製作", font=("", 25), 
 scdl_dayofweek_lbl = tk.Label(root, text="曜日を選んでください。", font=("", 25))
 scdl_day_btn_mon = tk.Button(root, text="月曜日", font=("", 25), command=scdl_mon)
 scdl_day_btn_tue = tk.Button(root, text="火曜日", font=("", 25), command=scdl_tue)
-scdl_day_btn_wen = tk.Button(root, text="水曜日", font=("", 25), command=scdl_wed)
+scdl_day_btn_wed = tk.Button(root, text="水曜日", font=("", 25), command=scdl_wed)
 scdl_day_btn_thu = tk.Button(root, text="木曜日", font=("", 25), command=scdl_thu)
 scdl_day_btn_fri = tk.Button(root, text="金曜日", font=("", 25), command=scdl_fri)
 
