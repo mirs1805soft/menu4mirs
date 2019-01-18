@@ -2241,13 +2241,6 @@ scdl_list = {
     }
 }
 
-# jsonファイルの読み込み
-#read_file = open("schedule.json")
-#read_scdl_dic = json.load(read_file)
-
-# jsonファイルの書き込み
-write_file = open("schedule.json", "w")
-
 # ウィンドウの生成
 root = tk.Tk()
 root.title("Menu")

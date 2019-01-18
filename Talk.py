@@ -8,6 +8,12 @@ import numpy as np
 from numpy.random import *
 
 def Talk():
+    read_file = open("schedule.json", "r")
+    scdl_list = json.load(read_file)
+
+    voice = scdl_list[before][year] + "年" + scdl_list[before][month] + "月" + scdl_list[before][day] + "日" + scdl_list[before][dayofweek] + "曜日の" + scdl_list[before][subject] + "が、" + scdl_list[after][year] + "年" + scdl_list[after][month] + "月" + scdl_list[after][day] + "日" + scdl_list[after][dayofweek] + "曜日の" + scdl_list[after][subject] + "と交換です。"
+    voice2talk = "echo '" + voice + "' | open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp.wav"
+
     host = "localhost"
     port = 10500
 
@@ -17,8 +23,8 @@ def Talk():
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.connect((host, port))
 
-    data =""
-    killword =""
+    data = ""
+    killword = ""
 
     while True:
         while (1):
@@ -36,7 +42,6 @@ def Talk():
                             print ("Result: " + strTemp)
                             #os.system("aplay '/home/pi/Music/ohayo.wav'")
                             subprocess.call('echo "おはよう" | open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp.wav'.split())
-                            print ("<<<please speak>>>")
                             killword = "おはよう"
 
                     elif strTemp == 'こんにちは':
@@ -44,7 +49,6 @@ def Talk():
                             print ("Result: " + strTemp)
                             #os.system("aplay '/home/pi/Music/konnichiwa.wav'")
                             subprocess.call('echo "こんにちは" | open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp.wav'.split())
-                            print ("<<<please speak>>>")
                             killword = "こんにちは"
 
                     elif strTemp == 'こんばんは':
@@ -52,27 +56,27 @@ def Talk():
                             print ("Result: " + strTemp)
                             #os.system("aplay '/home/pi/Music/konbanwa.wav'")
                             subprocess.call('echo "こんばんは" | open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp.wav'.split())
-                            print ("<<<please speak>>>")
                             killword = "こんばんは"
 
                     elif strTemp == 'よていをおしえて':
                         if killword != "よていをおしえて":
                             print ("Result: " + strTemp)
                             #os.system("aplay '/home/pi/Music/konbanwa.wav'")
-                            subprocess.call(.split())
-                            print ("<<<please speak>>>")
+                            subprocess.call(voice2talk.split())
                             killword = "よていをおしえて"
 
                     else:
                         print("Result:" + strTemp)
                         i = randint(3)
                         if i == 0:
-                            os.system("aplay: '/home/pi/Music/aizuchi00.wav'")
+                            print("")
+                            #os.system("aplay: '/home/pi/Music/aizuchi00.wav'")
                         elif i == 1:
-                            os.system("aplay: '/home/pi/Music/aizuchi01.wav'")
+                            print("")
+                            #os.system("aplay: '/home/pi/Music/aizuchi01.wav'")
                         elif i == 2:
-                            os.system("aplay: '/home/pi/Music/aizuchi02.wav'")
-                        print ("<<<please speak>>>")
+                            print("")
+                            #os.system("aplay: '/home/pi/Music/aizuchi02.wav'")
                     data = ""
       else:
                 data += str(sock.recv(1024).decode('utf-8'))

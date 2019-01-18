@@ -12,7 +12,7 @@ def scdl_finish():
     json.dump(scdl_list, write_file, indent=4)
 
     root.destroy()
-    subprocess.call("python3 menu1.py".split())
+    subprocess.call("python3 menu2.py".split())
     #scdl_finish_btn.pack_forget()
     #scdl_cancel_btn.pack_forget()
 
@@ -2240,13 +2240,6 @@ scdl_list = {
         "subject" : ""
     }
 }
-
-# jsonファイルの読み込み
-#read_file = open("schedule.json")
-#read_scdl_dic = json.load(read_file)
-
-# jsonファイルの書き込み
-write_file = open("schedule.json", "w")
 
 # ウィンドウの生成
 root = tk.Tk()
