@@ -35,6 +35,7 @@ def Talk():
                         if killword != 'おはよう':
                             print ("Result: " + strTemp)
                             #os.system("aplay '/home/pi/Music/ohayo.wav'")
+                            subprocess.call('echo "おはよう" | open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp.wav'.split())
                             print ("<<<please speak>>>")
                             killword = "おはよう"
 
@@ -42,6 +43,7 @@ def Talk():
                         if killword != "こんにちは":
                             print ("Result: " + strTemp)
                             #os.system("aplay '/home/pi/Music/konnichiwa.wav'")
+                            subprocess.call('echo "こんにちは" | open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp.wav'.split())
                             print ("<<<please speak>>>")
                             killword = "こんにちは"
 
@@ -49,6 +51,7 @@ def Talk():
                         if killword != "こんばんは":
                             print ("Result: " + strTemp)
                             #os.system("aplay '/home/pi/Music/konbanwa.wav'")
+                            subprocess.call('echo "こんばんは" | open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp.wav'.split())
                             print ("<<<please speak>>>")
                             killword = "こんばんは"
 
@@ -56,6 +59,7 @@ def Talk():
                         if killword != "よていをおしえて":
                             print ("Result: " + strTemp)
                             #os.system("aplay '/home/pi/Music/konbanwa.wav'")
+                            subprocess.call(.split())
                             print ("<<<please speak>>>")
                             killword = "よていをおしえて"
 
