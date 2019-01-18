@@ -2246,7 +2246,7 @@ def talk():
 
     while True:
         if '</RECOGOUT>\n.' in data:
-            data = data + sock.recv(1024)
+            #data = data + sock.recv(1024)
             strTemp = ""
             for line in data.split('\n'):
                 index = line.find('WORD="')
