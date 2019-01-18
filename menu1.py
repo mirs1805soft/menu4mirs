@@ -2290,7 +2290,8 @@ def talk():
                         print("")
                 data = ""
         else:
-                data += str(sock.recv(1024).decode('utf-8'))
+            data += str(sock.recv(1024).decode('utf-8'))
+        break
 
 scdl_list = {
     "before" : {
