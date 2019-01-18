@@ -2257,7 +2257,7 @@ def talk():
                 elif strTemp == 'おはよう':
                     if killword != 'おはよう':
                         print ("Result: " + strTemp)
-                        subprocess.call('echo "おはよう" | open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp.wav'.split())
+                        subprocess.call('echo "おはよう" | sudo open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp.wav'.split())
                         subprocess.call('aplay ./open_jtalk_tmp.wav'.split())
                         killword = "おはよう"
 
