@@ -5,10 +5,13 @@ import subprocess
 #from collections import OrderedDict
 
 def scdl_finish():
+    subprocess.call("sudo rm schedule.json".split())
+    subprocess.call("sudo touch schedule.json".split())
+    subprocess.call("sudo chmod 777 schedule.json".split())
     json.dump(scdl_list, write_file, indent=4)
 
     root.destroy()
-    subprocess.call("python3 menu1.py".split())
+    subprocess.call("python3 menu2.py".split())
     #scdl_finish_btn.pack_forget()
     #scdl_cancel_btn.pack_forget()
 
