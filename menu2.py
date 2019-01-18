@@ -1284,7 +1284,7 @@ def scdl_mon():
     scdl_dayofweek_lbl.pack_forget()
     scdl_day_btn_mon.pack_forget()
     scdl_day_btn_tue.pack_forget()
-    scdl_day_btn_wen.pack_forget()
+    scdl_day_btn_wed.pack_forget()
     scdl_day_btn_thu.pack_forget()
     scdl_day_btn_fri.pack_forget()
 
@@ -1299,7 +1299,7 @@ def scdl_tue():
     scdl_dayofweek_lbl.pack_forget()
     scdl_day_btn_mon.pack_forget()
     scdl_day_btn_tue.pack_forget()
-    scdl_day_btn_wen.pack_forget()
+    scdl_day_btn_wed.pack_forget()
     scdl_day_btn_thu.pack_forget()
     scdl_day_btn_fri.pack_forget()
 
@@ -1314,7 +1314,7 @@ def scdl_wed():
     scdl_dayofweek_lbl.pack_forget()
     scdl_day_btn_mon.pack_forget()
     scdl_day_btn_tue.pack_forget()
-    scdl_day_btn_wen.pack_forget()
+    scdl_day_btn_wed.pack_forget()
     scdl_day_btn_thu.pack_forget()
     scdl_day_btn_fri.pack_forget()
 
@@ -1328,7 +1328,7 @@ def scdl_thu():
     scdl_dayofweek_lbl.pack_forget()
     scdl_day_btn_mon.pack_forget()
     scdl_day_btn_tue.pack_forget()
-    scdl_day_btn_wen.pack_forget()
+    scdl_day_btn_wed.pack_forget()
     scdl_day_btn_thu.pack_forget()
     scdl_day_btn_fri.pack_forget()
 
@@ -1343,7 +1343,7 @@ def scdl_fri():
     scdl_dayofweek_lbl.pack_forget()
     scdl_day_btn_mon.pack_forget()
     scdl_day_btn_tue.pack_forget()
-    scdl_day_btn_wen.pack_forget()
+    scdl_day_btn_wed.pack_forget()
     scdl_day_btn_thu.pack_forget()
     scdl_day_btn_fri.pack_forget()
 
@@ -1389,7 +1389,7 @@ def scdl_dayofweek():
     scdl_dayofweek_lbl.pack(pady=10)
     scdl_day_btn_mon.pack(pady=10)
     scdl_day_btn_tue.pack(pady=10)
-    scdl_day_btn_wen.pack(pady=10)
+    scdl_day_btn_wed.pack(pady=10)
     scdl_day_btn_thu.pack(pady=10)
     scdl_day_btn_fri.pack(pady=10)
 
