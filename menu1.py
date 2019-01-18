@@ -2292,8 +2292,12 @@ def talk():
                     elif i == 2:
                         print("")
                 data = ""
+
+                if flag == True:
+                    break
         else:
             data += str(sock.recv(1024).decode('utf-8'))
+
         if flag == True:
             break
 
