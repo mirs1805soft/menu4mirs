@@ -2261,6 +2261,7 @@ def talk():
                         print ("Result: " + strTemp)
                         subprocess.call('echo "春夏秋冬" | sudo open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp.wav'.split())
                         #subprocess.call(voice2talk.split())
+                        time.sleep(3)
                         subprocess.call('aplay ./open_jtalk_tmp.wav'.split())
                         killword = "おはよう"
                         flag = True
