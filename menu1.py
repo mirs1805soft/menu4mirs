@@ -440,7 +440,7 @@ def scdl2_day1():
     scdl2_month_btn11.pack_forget()
     scdl2_month_btn12.pack_forget()
 
-    scdl2_day_lbl.grid(column=0, row=1)
+    scdl2_day_lbl.grid(column=3, row=0)
     scdl2_day_btn1.grid(column=1, row=1)
     scdl2_day_btn2.grid(column=2, row=1)
     scdl2_day_btn3.grid(column=3, row=1)
