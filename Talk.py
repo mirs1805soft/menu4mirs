@@ -78,5 +78,5 @@ def Talk():
                             print("")
                             #os.system("aplay: '/home/pi/Music/aizuchi02.wav'")
                     data = ""
-      else:
+            else:
                 data += str(sock.recv(1024).decode('utf-8'))
