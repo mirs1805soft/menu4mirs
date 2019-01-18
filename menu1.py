@@ -3,7 +3,7 @@ import tkinter as tk
 import json
 import subprocess
 #from collections import OrderedDict
-import Talk2Mirs
+from Talk2Mirs import *
 
 def scdl_finish():
     subprocess.call("sudo rm schedule.json".split())
