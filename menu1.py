@@ -2244,6 +2244,8 @@ def talk():
     data = ""
     killword = ""
 
+    flag = False
+
     while True:
         if '</RECOGOUT>\n.' in data:
             #data = data + sock.recv(1024)
@@ -2260,6 +2262,7 @@ def talk():
                         subprocess.call('echo "おはよう" | sudo open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp.wav'.split())
                         subprocess.call('aplay ./open_jtalk_tmp.wav'.split())
                         killword = "おはよう"
+                        flag = True
 
                 elif strTemp == 'こんにちは':
                     if killword != "こんにちは":
@@ -2291,7 +2294,8 @@ def talk():
                 data = ""
         else:
             data += str(sock.recv(1024).decode('utf-8'))
-        break
+        if flag == True:
+            break
 
 scdl_list = {
     "before" : {
