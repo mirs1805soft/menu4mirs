@@ -2245,59 +2245,23 @@ def talk():
     killword = ""
 
     while True:
-        while (1):
-            if '</RECOGOUT>\n.' in data:
-                #data = data + sock.recv(1024)
-                strTemp = ""
-                for line in data.split('\n'):
-                    index = line.find('WORD="')
-                    if index != -1:
-                        line = line[index+6:line.find('"',index+6)]
-                        strTemp += str(line)
+        while (string.find(data, "\n.") == -1):
+            data = data + sock.recv(1024)
 
-                    elif strTemp == 'おはよう':
-                        if killword != 'おはよう':
-                            print ("Result: " + strTemp)
-                            #os.system("aplay '/home/pi/Music/ohayo.wav'")
-                            subprocess.call('echo "おはよう" | open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp.wav'.split())
-                            killword = "おはよう"
+            # 音声XMLデータから、<WORD>を抽出して音声テキスト文に連結する。
+            strTemp = ""
+            for line in data.split('\n'):
+                index = line.find('WORD="')
 
-                    elif strTemp == 'こんにちは':
-                        if killword != "こんにちは":
-                            print ("Result: " + strTemp)
-                            #os.system("aplay '/home/pi/Music/konnichiwa.wav'")
-                            subprocess.call('echo "こんにちは" | open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp.wav'.split())
-                            killword = "こんにちは"
+                if index != -1:
+                    line = line[index + 6:line.find('"', index + 6)]
+                    if line != "[s]":
+                        strTemp = strTemp + line
 
-                    elif strTemp == 'こんばんは':
-                        if killword != "こんばんは":
-                            print ("Result: " + strTemp)
-                            #os.system("aplay '/home/pi/Music/konbanwa.wav'")
-                            subprocess.call('echo "こんばんは" | open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp.wav'.split())
-                            killword = "こんばんは"
+            if strTemp == "おはよう":
+                print("結果:" + strTemp)
 
-                    elif strTemp == 'よていをおしえて':
-                        if killword != "よていをおしえて":
-                            print ("Result: " + strTemp)
-                            #os.system("aplay '/home/pi/Music/konbanwa.wav'")
-                            subprocess.call(voice2talk.split())
-                            killword = "よていをおしえて"
-
-                    else:
-                        print("Result:" + strTemp)
-                        i = randint(3)
-                        if i == 0:
-                            print("")
-                            #os.system("aplay: '/home/pi/Music/aizuchi00.wav'")
-                        elif i == 1:
-                            print("")
-                            #os.system("aplay: '/home/pi/Music/aizuchi01.wav'")
-                        elif i == 2:
-                            print("")
-                            #os.system("aplay: '/home/pi/Music/aizuchi02.wav'")
-                    data = ""
-            else:
-                data += str(sock.recv(1024).decode('utf-8'))
+            data = ""
 
 scdl_list = {
     "before" : {
