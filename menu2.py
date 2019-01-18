@@ -3,6 +3,7 @@ import tkinter as tk
 import json
 import subprocess
 #from collections import OrderedDict
+import Talk
 
 def scdl_finish():
     json.dump(scdl_list, write_file, indent=4)
@@ -2179,7 +2180,7 @@ def scdl_year():
     scdl_year_btn2.pack()
 
 def talk():
-    print("")
+    Talk()
 
 scdl_list = {
     "before" : {

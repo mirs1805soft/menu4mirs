@@ -2179,7 +2179,7 @@ def scdl_year():
     scdl_year_btn2.pack()
 
 def talk():
-    print("")
+    Talk()
 
 scdl_list = {
     "before" : {
