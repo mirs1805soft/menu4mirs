@@ -9,51 +9,51 @@ if (isset($_POST["sub1"])) {
 	$kbn = htmlspecialchars($_POST["sub1"], ENT_QUOTES, "UTF-8");
 	switch ($kbn) {
 		case "A":
-			exec("");
+			//exec("");
 			//echo "登録処理";
 			break; // A
 		case "B":
-			exec("")
+			//exec("")
 			//echo "変更処理";
 			break; // B
 		case "C":
-			exec("")
+			//exec("")
 			//echo "削除処理";
 			break; // C
 		case "D":
-			exec("")
+			//exec("")
 			//echo "変更処理";
 			break; // D
 		case "E":
-			exec("")
+			//exec("")
 			//echo "変更処理";
 			break; // E
 		case "F":
-			exec("")
+			//exec("")
 			//echo "変更処理";
 			break; // F
 		case "G":
-			exec("")
+			//exec("")
 			//echo "変更処理";
 			break; // G
 		case "H":
-			exec("")
+			//exec("")
 			//echo "変更処理";
 			break; // H
 		case "I":
-			exec("")
+			//exec("")
 			//echo "変更処理";
 			break; // I
 		case "J":
-			exec("")
+			//exec("")
 			//echo "変更処理";
 			break; // J
 		case "K":
-			exec("")
+			//exec("")
 			//echo "変更処理";
 			break; // K
 		case "L":
-			exec("")
+			//exec("")
 			//echo "変更処理";
 			break; // L
 		default:
@@ -62,6 +62,7 @@ if (isset($_POST["sub1"])) {
 	}
 }
 ?>
+<img src="./seat.png" alt="seat" title="seat">
 <form method="POST" action="">
 <input type="submit" value="A" name="sub1">
 <input type="submit" value="B" name="sub1">
