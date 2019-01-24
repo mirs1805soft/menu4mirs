@@ -2239,7 +2239,7 @@ def talk():
 
     p = subprocess.Popen(["./julius_start.sh"], stdout=subprocess.PIPE, shell=True)
     pid = str(p.stdout.read().decode('utf-8'))  # juliusのプロセスIDを取得
-    time.sleep(2)
+    time.sleep(3)
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.connect((host, port))
 
@@ -2260,7 +2260,7 @@ def talk():
 
                 elif strTemp == 'おはよう':
                     if killword != 'おはよう':
-                        print ("Result: " + strTemp)
+                        print("Result: " + strTemp)
                         #subprocess.call("sudo echo 'あいうえお' | sudo open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp.wav".split())
                         #subprocess.call('aplay ./open_jtalk_tmp.wav'.split())
                         open_jtalk = ['open_jtalk']
@@ -2280,7 +2280,7 @@ def talk():
 
                 elif strTemp == 'こんにちは':
                     if killword != "こんにちは":
-                        print ("Result: " + strTemp)
+                        print("Result: " + strTemp)
                         #subprocess.call('echo "こんにちは" | open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp.wav'.split())
                         #subprocess.call('aplay ./open_jtalk_tmp.wav'.split())
                         open_jtalk = ['open_jtalk']
@@ -2300,7 +2300,7 @@ def talk():
 
                 elif strTemp == 'こんばんは':
                     if killword != "こんばんは":
-                        print ("Result: " + strTemp)
+                        print("Result: " + strTemp)
                         #subprocess.call('echo "こんばんは" | open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp.wav'.split())
                         #subprocess.call('aplay ./open_jtalk_tmp.wav'.split())
                         open_jtalk = ['open_jtalk']
@@ -2320,7 +2320,7 @@ def talk():
 
                 elif strTemp == 'よていおしえて':
                     if killword != "よていおしえて":
-                        print ("Result: " + strTemp)
+                        print("Result: " + strTemp)
                         open_jtalk = ['open_jtalk']
                         mech = ['-x','/var/lib/mecab/dic/open-jtalk/naist-jdic']
                         htsvoice = ['-m','/usr/share/hts-voice/miku/miku.htsvoice']
