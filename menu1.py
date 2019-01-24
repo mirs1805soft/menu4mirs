@@ -2229,8 +2229,10 @@ def talk():
     read_file = open("schedule.json", "r")
     scdl_list = json.load(read_file)
 
-    voice = scdl_list["before"]["year"] + "年" + scdl_list["before"]["month"] + "月" + scdl_list["before"]["day"] + "日" + scdl_list["before"]["dayofweek"] + "曜日の" + scdl_list["before"]["subject"] + "が" + scdl_list["after"]["year"] + "年" + scdl_list["after"]["month"] + "月" + scdl_list["after"]["day"] + "日" + scdl_list["after"]["dayofweek"] + "曜日の" + scdl_list["after"]["subject"] + "と交換です。"
-    voice2talk = "echo '" + voice + "' | open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp.wav"
+    voice1 = scdl_list["before"]["year"] + "年" + scdl_list["before"]["month"] + "月" + scdl_list["before"]["day"] + "日" + scdl_list["before"]["dayofweek"] + "曜日の" + scdl_list["before"]["subject"] + "が"
+    voice2 = scdl_list["after"]["year"] + "年" + scdl_list["after"]["month"] + "月" + scdl_list["after"]["day"] + "日" + scdl_list["after"]["dayofweek"] + "曜日の" + scdl_list["after"]["subject"] + "と交換です。"
+    voice1talk = "sudo echo '" + voice1 + "' | sudo open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp1.wav"
+    voice2talk = "sudo echo '" + voice2 + "' | sudo open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp2.wav"
 
     host = "localhost"
     port = 10500
@@ -2259,8 +2261,8 @@ def talk():
                 elif strTemp == 'おはよう':
                     if killword != 'おはよう':
                         print ("Result: " + strTemp)
-                        subprocess.call("sudo echo 'あいうえお' | sudo open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp.wav".split())
-                        #subprocess.call(voice2talk.split())
+                        subprocess.call("sudo echo 'かきくけこ' | sudo open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp.wav".split())
+                        subprocess.call(voice2talk.split())
                         time.sleep(3)
                         subprocess.call('aplay ./open_jtalk_tmp.wav'.split())
                         killword = "おはよう"
@@ -2281,8 +2283,13 @@ def talk():
                 elif strTemp == 'よていをおしえて':
                     if killword != "よていをおしえて":
                         print ("Result: " + strTemp)
-                        subprocess.call(voice2talk.split())
+                        subprocess.call(voice1talk, shell=True)
+                        subprocess.call('sudo play ./open_jtalk_tmp.wav1', shell=True)
+                        time.sleep(3)
+                        subprocess.call(voice2talk, shell=True)
+                        subprocess.call('sudo aplay ./open_jtalk_tmp.wav2', shell=True)
                         killword = "よていをおしえて"
+                        flag = True
 
                 else:
                     print("Result:" + strTemp)
