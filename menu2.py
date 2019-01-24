@@ -7,6 +7,7 @@ import string
 import random
 import numpy as np
 from numpy.random import *
+from datetime import datetime
 
 def scdl_finish():
     subprocess.call("sudo rm schedule.json".split())
@@ -16,7 +17,7 @@ def scdl_finish():
     json.dump(scdl_list, write_file, indent=4)
 
     root.destroy()
-    subprocess.call("python3 menu1.py".split())
+    subprocess.call("python3 menu2.py".split())
     #scdl_finish_btn.pack_forget()
     #scdl_cancel_btn.pack_forget()
 
@@ -2229,10 +2230,9 @@ def talk():
     read_file = open("schedule.json", "r")
     scdl_list = json.load(read_file)
 
-    voice1 = scdl_list["before"]["year"] + "年" + scdl_list["before"]["month"] + "月" + scdl_list["before"]["day"] + "日" + scdl_list["before"]["dayofweek"] + "曜日の" + scdl_list["before"]["subject"] + "が"
-    voice2 = scdl_list["after"]["year"] + "年" + scdl_list["after"]["month"] + "月" + scdl_list["after"]["day"] + "日" + scdl_list["after"]["dayofweek"] + "曜日の" + scdl_list["after"]["subject"] + "と交換です。"
-    voice1talk = "sudo echo '" + voice1 + "' | sudo open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp1.wav"
-    voice2talk = "sudo echo '" + voice2 + "' | sudo open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp2.wav"
+    voice_subject_u = scdl_list["before"]["year"].decode("unicode-escape") + "年" + scdl_list["before"]["month"].decode("unicode-escape") + "月" + scdl_list["before"]["day"].decode("unicode-escape") + "日" + scdl_list["before"]["dayofweek"].decode("unicode-escape") + "曜日の" + scdl_list["before"]["subject"].decode("unicode-escape") + "が" + scdl_list["after"]["year"].decode("unicode-escape") + "年" + scdl_list["after"]["month"].decode("unicode-escape") + "月" + scdl_list["after"]["day"].decode("unicode-escape") + "日" + scdl_list["after"]["dayofweek"].decode("unicode-escape") + "曜日の" + scdl_list["after"]["subject"].decode("unicode-escape") + "と交換です。"
+    voice_subject_b = voice_subject_u.encode("unicode-escape")
+    #voicetalk = "sudo echo '" + voice1 + "' | sudo open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp.wav"
 
     host = "localhost"
     port = 10500
@@ -2261,45 +2261,89 @@ def talk():
                 elif strTemp == 'おはよう':
                     if killword != 'おはよう':
                         print ("Result: " + strTemp)
-                        subprocess.call("sudo echo 'かきくけこ' | sudo open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp.wav".split())
-                        subprocess.call(voice2talk.split())
-                        time.sleep(3)
-                        subprocess.call('aplay ./open_jtalk_tmp.wav'.split())
+                        #subprocess.call("sudo echo 'あいうえお' | sudo open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp.wav".split())
+                        #subprocess.call('aplay ./open_jtalk_tmp.wav'.split())
+                        open_jtalk = ['open_jtalk']
+                        mech = ['-x','/var/lib/mecab/dic/open-jtalk/naist-jdic']
+                        htsvoice = ['-m','/usr/share/hts-voice/miku/miku.htsvoice']
+                        voice_speed = ['-r','1.0']
+                        outwav = ['-ow','open_jtalk.wav']
+                        cmd = open_jtalk + mech + htsvoice + voice_speed + outwav
+                        c = subprocess.Popen(cmd, stdin = subprocess.PIPE)
+                        c.stdin.write(b"おはよう")
+                        c.stdin.close()
+                        c.wait()
+                        aplay = ['aplay','-q','open_jtalk.wav']
+                        wr = subprocess.Popen(aplay)
                         killword = "おはよう"
                         flag = True
 
                 elif strTemp == 'こんにちは':
                     if killword != "こんにちは":
                         print ("Result: " + strTemp)
-                        subprocess.call('echo "こんにちは" | open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp.wav'.split())
+                        #subprocess.call('echo "こんにちは" | open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp.wav'.split())
+                        #subprocess.call('aplay ./open_jtalk_tmp.wav'.split())
+                        open_jtalk = ['open_jtalk']
+                        mech = ['-x','/var/lib/mecab/dic/open-jtalk/naist-jdic']
+                        htsvoice = ['-m','/usr/share/hts-voice/miku/miku.htsvoice']
+                        voice_speed = ['-r','1.0']
+                        outwav = ['-ow','open_jtalk.wav']
+                        cmd = open_jtalk + mech + htsvoice + voice_speed + outwav
+                        c = subprocess.Popen(cmd, stdin = subprocess.PIPE)
+                        c.stdin.write(b"こんにちは")
+                        c.stdin.close()
+                        c.wait()
+                        aplay = ['aplay','-q','open_jtalk.wav']
+                        wr = subprocess.Popen(aplay)
                         killword = "こんにちは"
+                        flag = True
 
                 elif strTemp == 'こんばんは':
                     if killword != "こんばんは":
                         print ("Result: " + strTemp)
-                        subprocess.call('echo "こんばんは" | open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp.wav'.split())
+                        #subprocess.call('echo "こんばんは" | open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp.wav'.split())
+                        #subprocess.call('aplay ./open_jtalk_tmp.wav'.split())
+                        open_jtalk = ['open_jtalk']
+                        mech = ['-x','/var/lib/mecab/dic/open-jtalk/naist-jdic']
+                        htsvoice = ['-m','/usr/share/hts-voice/miku/miku.htsvoice']
+                        voice_speed = ['-r','1.0']
+                        outwav = ['-ow','open_jtalk.wav']
+                        cmd = open_jtalk + mech + htsvoice + voice_speed + outwav
+                        c = subprocess.Popen(cmd, stdin = subprocess.PIPE)
+                        c.stdin.write(b"こんばんは")
+                        c.stdin.close()
+                        c.wait()
+                        aplay = ['aplay','-q','open_jtalk.wav']
+                        wr = subprocess.Popen(aplay)
                         killword = "こんばんは"
+                        flag = True
 
-                elif strTemp == 'よていをおしえて':
-                    if killword != "よていをおしえて":
+                elif strTemp == 'よていおしえて':
+                    if killword != "よていおしえて":
                         print ("Result: " + strTemp)
-                        subprocess.call(voice1talk, shell=True)
-                        subprocess.call('sudo play ./open_jtalk_tmp.wav1', shell=True)
-                        time.sleep(3)
-                        subprocess.call(voice2talk, shell=True)
-                        subprocess.call('sudo aplay ./open_jtalk_tmp.wav2', shell=True)
-                        killword = "よていをおしえて"
+                        open_jtalk = ['open_jtalk']
+                        mech = ['-x','/var/lib/mecab/dic/open-jtalk/naist-jdic']
+                        htsvoice = ['-m','/usr/share/hts-voice/miku/miku.htsvoice']
+                        voice_speed = ['-r','1.0']
+                        outwav = ['-ow','open_jtalk.wav']
+                        cmd = open_jtalk + mech + htsvoice + voice_speed + outwav
+                        c = subprocess.Popen(cmd, stdin = subprocess.PIPE)
+                        c.stdin.write(voice_subject_b)
+                        c.stdin.close()
+                        c.wait()
+                        aplay = ['aplay','-q','open_jtalk.wav']
+                        wr = subprocess.Popen(aplay)
+                        killword = "よていおしえて"
                         flag = True
 
                 else:
-                    print("Result:" + strTemp)
-                    i = randint(3)
-                    if i == 0:
+                    wait = 0
+                    if wait == 10:
                         print("")
-                    elif i == 1:
-                        print("")
-                    elif i == 2:
-                        print("")
+                        wait = 0
+                    elif:
+                        wait += 1
+
                 data = ""
 
                 if flag == True:
@@ -2336,8 +2380,7 @@ root.attributes("-zoomed", "1")
 scdl_finish_btn = tk.Button(root, text="編集完了", font=("", 25), command=scdl_finish)
 scdl_cancel_btn = tk.Button(root, text="キャンセル", font=("", 25), command=scdl_cancel)
 
-
-
+# after
 scdl2_subject_lbl = tk.Label(root, text="教科を選んでください。", font=("", 25), width=20)
 
 scdl2_mon_btn1 = tk.Button(root, text="工学数理演習", font=("", 25), command=scdl_mon_finish1)
@@ -2417,8 +2460,7 @@ scdl2_year_lbl = tk.Label(root, text="年を選んでください。", font=("",
 scdl2_year_btn1 = tk.Button(root, text="2019", font=("", 25), command=scdl2_month2019)
 scdl2_year_btn2 = tk.Button(root, text="2020", font=("", 25), command=scdl2_month2020)
 
-
-
+# before
 scdl_subject_lbl = tk.Label(root, text="教科を選んでください。", font=("", 25), width=20)
 
 scdl_mon_btn1 = tk.Button(root, text="工学数理演習", font=("", 25), command=scdl2_year_mon1)
@@ -2500,8 +2542,8 @@ scdl_year_btn2 = tk.Button(root, text="2020", font=("", 25), command=scdl_month2
 
 # 最初に表示するオブジェクト
 scdl_btn = tk.Button(root, text="スケジュール編集", font=("", 25), command=scdl_year)
-scdl_btn.pack(pady=250)#(anchor = "n")
+scdl_btn.pack(pady=20)
 talk_btn = tk.Button(root, text="ロボメイトと会話", font=("", 25), command=talk)
-talk_btn.pack()#(anchor = "n")
+talk_btn.pack()
 
 root.mainloop()
