@@ -2213,7 +2213,6 @@ def talk():
                 else:
                     wait = 0
                     if wait == 10:
-                        print("")
                         wait = 0
                     else:
                         wait += 1
