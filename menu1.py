@@ -263,7 +263,7 @@ def scdl2_dayofweek():
     if scdl_list["after"]["month"] != "2":
         scdl2_day_btn29.grid_forget()
         scdl2_day_btn30.grid_forget()
-        if scdl_list["after"]["month"] != "4" and scdl2_list["after"]["month"] != "6" and scdl2_list["after"]["month"] != "9" and scdl2_list["after"]["month"] != "11":
+        if scdl_list["after"]["month"] != "4" and scdl_list["after"]["month"] != "6" and scdl_list["after"]["month"] != "9" and scdl_list["after"]["month"] != "11":
             scdl2_day_btn31.grid_forget()
 
     after_date = "{}/{}/{}".format(scdl_list["after"]["year"], scdl_list["after"]["month"], scdl_list["after"]["day"])
@@ -1284,7 +1284,7 @@ def scdl_dayofweek():
             scdl_day_btn31.grid_forget()
 
     before_date = "{}/{}/{}".format(scdl_list["before"]["year"], scdl_list["before"]["month"], scdl_list["before"]["day"])
-    b = datetime.strptime(user_input_date,'%Y/%m/%d')
+    b = datetime.strptime(before_date,'%Y/%m/%d')
 
     if b.weekday() == 0:
         scdl_mon()
