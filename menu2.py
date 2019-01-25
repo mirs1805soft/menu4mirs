@@ -2083,7 +2083,7 @@ def talk():
 
     p = subprocess.Popen(["./julius_start.sh"], stdout=subprocess.PIPE, shell=True)
     pid = str(p.stdout.read().decode("utf-8"))  # juliusのプロセスIDを取得
-    sleep(3)
+    sleep(1)
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.connect((host, port))
 
@@ -2182,7 +2182,7 @@ def talk():
                         print("aplay1 end")
 
                         print("sleep1 start")
-                        sleep(1)
+                        sleep(3)
                         print("sleep1 end")
 
                         c = subprocess.Popen(cmd, stdin = subprocess.PIPE)
@@ -2195,7 +2195,7 @@ def talk():
                         print("aplay2 end")
 
                         print("sleep2 start")
-                        sleep(1)
+                        sleep(3)
                         print("sleep2 end")
 
                         c = subprocess.Popen(cmd, stdin = subprocess.PIPE)
