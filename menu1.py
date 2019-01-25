@@ -1,4 +1,5 @@
-import os, sys, time
+import os
+import sys
 import tkinter as tk
 import json
 import subprocess
@@ -7,7 +8,8 @@ import string
 import random
 import numpy as np
 from numpy.random import *
-from datetime import datetime
+from time import *
+from datetime import *
 
 def scdl_finish():
     subprocess.call("sudo rm schedule.json".split())
@@ -192,13 +194,6 @@ def scdl_fri_finish3():
 def scdl2_mon():
     scdl_list["after"]["dayofweek"] = "月"
 
-    scdl2_dayofweek_lbl.pack_forget()
-    scdl2_day_btn_mon.pack_forget()
-    scdl2_day_btn_tue.pack_forget()
-    scdl2_day_btn_wed.pack_forget()
-    scdl2_day_btn_thu.pack_forget()
-    scdl2_day_btn_fri.pack_forget()
-
     scdl2_subject_lbl.pack(pady=10)
     scdl2_mon_btn1.pack(pady=10)
     scdl2_mon_btn2.pack(pady=10)
@@ -206,13 +201,6 @@ def scdl2_mon():
 
 def scdl2_tue():
     scdl_list["after"]["dayofweek"] = "火"
-
-    scdl2_dayofweek_lbl.pack_forget()
-    scdl2_day_btn_mon.pack_forget()
-    scdl2_day_btn_tue.pack_forget()
-    scdl2_day_btn_wed.pack_forget()
-    scdl2_day_btn_thu.pack_forget()
-    scdl2_day_btn_fri.pack_forget()
 
     scdl2_subject_lbl.pack(pady=10)
     scdl2_tue_btn1.pack(pady=10)
@@ -222,26 +210,12 @@ def scdl2_tue():
 def scdl2_wed():
     scdl_list["after"]["dayofweek"] = "水"
 
-    scdl2_dayofweek_lbl.pack_forget()
-    scdl2_day_btn_mon.pack_forget()
-    scdl2_day_btn_tue.pack_forget()
-    scdl2_day_btn_wed.pack_forget()
-    scdl2_day_btn_thu.pack_forget()
-    scdl2_day_btn_fri.pack_forget()
-
     scdl2_subject_lbl.pack(pady=10)
     scdl2_wed_btn1.pack(pady=10)
     scdl2_wed_btn2.pack(pady=10)
 
 def scdl2_thu():
     scdl_list["after"]["dayofweek"] = "木"
-
-    scdl2_dayofweek_lbl.pack_forget()
-    scdl2_day_btn_mon.pack_forget()
-    scdl2_day_btn_tue.pack_forget()
-    scdl2_day_btn_wed.pack_forget()
-    scdl2_day_btn_thu.pack_forget()
-    scdl2_day_btn_fri.pack_forget()
 
     scdl2_subject_lbl.pack(pady=10)
     scdl2_thu_btn1.pack(pady=10)
@@ -250,13 +224,6 @@ def scdl2_thu():
 
 def scdl2_fri():
     scdl_list["after"]["dayofweek"] = "金"
-
-    scdl2_dayofweek_lbl.pack_forget()
-    scdl2_day_btn_mon.pack_forget()
-    scdl2_day_btn_tue.pack_forget()
-    scdl2_day_btn_wed.pack_forget()
-    scdl2_day_btn_thu.pack_forget()
-    scdl2_day_btn_fri.pack_forget()
 
     scdl2_subject_lbl.pack(pady=10)
     scdl2_fri_btn1.pack(pady=10)
@@ -293,16 +260,27 @@ def scdl2_dayofweek():
     scdl2_day_btn26.grid_forget()
     scdl2_day_btn27.grid_forget()
     scdl2_day_btn28.grid_forget()
-    scdl2_day_btn29.grid_forget()
-    scdl2_day_btn30.grid_forget()
-    scdl2_day_btn31.grid_forget()
+    if scdl_list["after"]["month"] != "2":
+        scdl2_day_btn29.grid_forget()
+        scdl2_day_btn30.grid_forget()
+        if scdl_list["after"]["month"] != "4" and scdl2_list["after"]["month"] != "6" and scdl2_list["after"]["month"] != "9" and scdl2_list["after"]["month"] != "11":
+            scdl2_day_btn31.grid_forget()
 
-    scdl2_dayofweek_lbl.pack(pady=10)
-    scdl2_day_btn_mon.pack(pady=10)
-    scdl2_day_btn_tue.pack(pady=10)
-    scdl2_day_btn_wed.pack(pady=10)
-    scdl2_day_btn_thu.pack(pady=10)
-    scdl2_day_btn_fri.pack(pady=10)
+    after_date = "{}/{}/{}".format(scdl_list["after"]["year"], scdl_list["after"]["month"], scdl_list["after"]["day"])
+    a = datetime.strptime(after_date,'%Y/%m/%d')
+
+    if a.weekday() == 0:
+        scdl2_mon()
+    elif a.weekday() == 1:
+        scdl2_tue()
+    elif a.weekday() == 2:
+        scdl2_wed()
+    elif a.weekday() == 3:
+        scdl2_thu()
+    elif a.weekday() == 4:
+        scdl2_fri()
+    else:
+        print("Error row:317")
 
 def scdl2_dayofweek1():
     scdl_list["after"]["day"] = "1"
@@ -524,9 +502,6 @@ def scdl2_day2():
     scdl2_day_btn26.grid(column=2, row=6)
     scdl2_day_btn27.grid(column=2, row=7)
     scdl2_day_btn28.grid(column=2, row=8)
-    scdl2_day_btn29.grid(column=2, row=9)
-    scdl2_day_btn30.grid(column=2, row=10)
-    scdl2_day_btn31.grid(column=2, row=11)
 
 def scdl2_day3():
     scdl_list["after"]["month"] = "3"
@@ -626,57 +601,6 @@ def scdl2_day4():
     scdl2_day_btn28.grid(column=2, row=8)
     scdl2_day_btn29.grid(column=2, row=9)
     scdl2_day_btn30.grid(column=2, row=10)
-    scdl2_day_btn31.grid(column=2, row=11)
-
-def scdl2_day5():
-    scdl_list["after"]["month"] = "5"
-
-    scdl2_month_lbl.pack_forget()
-    scdl2_month_btn1.pack_forget()
-    scdl2_month_btn2.pack_forget()
-    scdl2_month_btn3.pack_forget()
-    scdl2_month_btn4.pack_forget()
-    scdl2_month_btn5.pack_forget()
-    scdl2_month_btn6.pack_forget()
-    scdl2_month_btn7.pack_forget()
-    scdl2_month_btn8.pack_forget()
-    scdl2_month_btn9.pack_forget()
-    scdl2_month_btn10.pack_forget()
-    scdl2_month_btn11.pack_forget()
-    scdl2_month_btn12.pack_forget()
-
-    scdl2_day_lbl.grid(column=1, row=0)
-    scdl2_day_btn1.grid(column=0, row=1)
-    scdl2_day_btn2.grid(column=0, row=2)
-    scdl2_day_btn3.grid(column=0, row=3)
-    scdl2_day_btn4.grid(column=0, row=4)
-    scdl2_day_btn5.grid(column=0, row=5)
-    scdl2_day_btn6.grid(column=0, row=6)
-    scdl2_day_btn7.grid(column=0, row=7)
-    scdl2_day_btn8.grid(column=0, row=8)
-    scdl2_day_btn9.grid(column=0, row=9)
-    scdl2_day_btn10.grid(column=0, row=10)
-    scdl2_day_btn11.grid(column=1, row=1)
-    scdl2_day_btn12.grid(column=1, row=2)
-    scdl2_day_btn13.grid(column=1, row=3)
-    scdl2_day_btn14.grid(column=1, row=4)
-    scdl2_day_btn15.grid(column=1, row=5)
-    scdl2_day_btn16.grid(column=1, row=6)
-    scdl2_day_btn17.grid(column=1, row=7)
-    scdl2_day_btn18.grid(column=1, row=8)
-    scdl2_day_btn19.grid(column=1, row=9)
-    scdl2_day_btn20.grid(column=1, row=10)
-    scdl2_day_btn21.grid(column=2, row=1)
-    scdl2_day_btn22.grid(column=2, row=2)
-    scdl2_day_btn23.grid(column=2, row=3)
-    scdl2_day_btn24.grid(column=2, row=4)
-    scdl2_day_btn25.grid(column=2, row=5)
-    scdl2_day_btn26.grid(column=2, row=6)
-    scdl2_day_btn27.grid(column=2, row=7)
-    scdl2_day_btn28.grid(column=2, row=8)
-    scdl2_day_btn29.grid(column=2, row=9)
-    scdl2_day_btn30.grid(column=2, row=10)
-    scdl2_day_btn31.grid(column=2, row=11)
 
 def scdl2_day5():
     scdl_list["after"]["month"] = "5"
@@ -776,7 +700,6 @@ def scdl2_day6():
     scdl2_day_btn28.grid(column=2, row=8)
     scdl2_day_btn29.grid(column=2, row=9)
     scdl2_day_btn30.grid(column=2, row=10)
-    scdl2_day_btn31.grid(column=2, row=11)
 
 def scdl2_day7():
     scdl_list["after"]["month"] = "7"
@@ -926,7 +849,6 @@ def scdl2_day9():
     scdl2_day_btn28.grid(column=2, row=8)
     scdl2_day_btn29.grid(column=2, row=9)
     scdl2_day_btn30.grid(column=2, row=10)
-    scdl2_day_btn31.grid(column=2, row=11)
 
 def scdl2_day10():
     scdl_list["after"]["month"] = "10"
@@ -1026,7 +948,6 @@ def scdl2_day11():
     scdl2_day_btn28.grid(column=2, row=8)
     scdl2_day_btn29.grid(column=2, row=9)
     scdl2_day_btn30.grid(column=2, row=10)
-    scdl2_day_btn31.grid(column=2, row=11)
 
 def scdl2_day12():
     scdl_list["after"]["month"] = "12"
@@ -1290,13 +1211,6 @@ def scdl2_year_fri3():
 def scdl_mon():
     scdl_list["before"]["dayofweek"] = "月"
 
-    scdl_dayofweek_lbl.pack_forget()
-    scdl_day_btn_mon.pack_forget()
-    scdl_day_btn_tue.pack_forget()
-    scdl_day_btn_wed.pack_forget()
-    scdl_day_btn_thu.pack_forget()
-    scdl_day_btn_fri.pack_forget()
-
     scdl_subject_lbl.pack(pady=10)
     scdl_mon_btn1.pack(pady=10)
     scdl_mon_btn2.pack(pady=10)
@@ -1304,13 +1218,6 @@ def scdl_mon():
 
 def scdl_tue():
     scdl_list["before"]["dayofweek"] = "火"
-
-    scdl_dayofweek_lbl.pack_forget()
-    scdl_day_btn_mon.pack_forget()
-    scdl_day_btn_tue.pack_forget()
-    scdl_day_btn_wed.pack_forget()
-    scdl_day_btn_thu.pack_forget()
-    scdl_day_btn_fri.pack_forget()
 
     scdl_subject_lbl.pack(pady=10)
     scdl_tue_btn1.pack(pady=10)
@@ -1320,26 +1227,12 @@ def scdl_tue():
 def scdl_wed():
     scdl_list["before"]["dayofweek"] = "水"
 
-    scdl_dayofweek_lbl.pack_forget()
-    scdl_day_btn_mon.pack_forget()
-    scdl_day_btn_tue.pack_forget()
-    scdl_day_btn_wed.pack_forget()
-    scdl_day_btn_thu.pack_forget()
-    scdl_day_btn_fri.pack_forget()
-
     scdl_subject_lbl.pack(pady=10)
     scdl_wed_btn1.pack(pady=10)
     scdl_wed_btn2.pack(pady=10)
 
 def scdl_thu():
     scdl_list["before"]["dayofweek"] = "木"
-
-    scdl_dayofweek_lbl.pack_forget()
-    scdl_day_btn_mon.pack_forget()
-    scdl_day_btn_tue.pack_forget()
-    scdl_day_btn_wed.pack_forget()
-    scdl_day_btn_thu.pack_forget()
-    scdl_day_btn_fri.pack_forget()
 
     scdl_subject_lbl.pack(pady=10)
     scdl_thu_btn1.pack(pady=10)
@@ -1348,13 +1241,6 @@ def scdl_thu():
 
 def scdl_fri():
     scdl_list["before"]["dayofweek"] = "金"
-
-    scdl_dayofweek_lbl.pack_forget()
-    scdl_day_btn_mon.pack_forget()
-    scdl_day_btn_tue.pack_forget()
-    scdl_day_btn_wed.pack_forget()
-    scdl_day_btn_thu.pack_forget()
-    scdl_day_btn_fri.pack_forget()
 
     scdl_subject_lbl.pack(pady=10)
     scdl_fri_btn1.pack(pady=10)
@@ -1391,16 +1277,27 @@ def scdl_dayofweek():
     scdl_day_btn26.grid_forget()
     scdl_day_btn27.grid_forget()
     scdl_day_btn28.grid_forget()
-    scdl_day_btn29.grid_forget()
-    scdl_day_btn30.grid_forget()
-    scdl_day_btn31.grid_forget()
+    if scdl_list["before"]["month"] != "2":
+        scdl_day_btn29.grid_forget()
+        scdl_day_btn30.grid_forget()
+        if scdl_list["before"]["month"] != "4" and scdl_list["before"]["month"] != "6" and scdl_list["before"]["month"] != "9" and scdl_list["before"]["month"] != "11":
+            scdl_day_btn31.grid_forget()
 
-    scdl_dayofweek_lbl.pack(pady=10)
-    scdl_day_btn_mon.pack(pady=10)
-    scdl_day_btn_tue.pack(pady=10)
-    scdl_day_btn_wed.pack(pady=10)
-    scdl_day_btn_thu.pack(pady=10)
-    scdl_day_btn_fri.pack(pady=10)
+    before_date = "{}/{}/{}".format(scdl_list["before"]["year"], scdl_list["before"]["month"], scdl_list["before"]["day"])
+    b = datetime.strptime(user_input_date,'%Y/%m/%d')
+
+    if b.weekday() == 0:
+        scdl_mon()
+    elif b.weekday() == 1:
+        scdl_tue()
+    elif b.weekday() == 2:
+        scdl_wed()
+    elif b.weekday() == 3:
+        scdl_thu()
+    elif b.weekday() == 4:
+        scdl_fri()
+    else:
+        print("Error row:1380")
 
 def scdl_dayofweek1():
     scdl_list["before"]["day"] = "1"
@@ -1622,9 +1519,6 @@ def scdl_day2():
     scdl_day_btn26.grid(column=2, row=6)
     scdl_day_btn27.grid(column=2, row=7)
     scdl_day_btn28.grid(column=2, row=8)
-    scdl_day_btn29.grid(column=2, row=9)
-    scdl_day_btn30.grid(column=2, row=10)
-    scdl_day_btn31.grid(column=2, row=11)
 
 def scdl_day3():
     scdl_list["before"]["month"] = "3"
@@ -1724,57 +1618,6 @@ def scdl_day4():
     scdl_day_btn28.grid(column=2, row=8)
     scdl_day_btn29.grid(column=2, row=9)
     scdl_day_btn30.grid(column=2, row=10)
-    scdl_day_btn31.grid(column=2, row=11)
-
-def scdl_day5():
-    scdl_list["before"]["month"] = "5"
-
-    scdl_month_lbl.pack_forget()
-    scdl_month_btn1.pack_forget()
-    scdl_month_btn2.pack_forget()
-    scdl_month_btn3.pack_forget()
-    scdl_month_btn4.pack_forget()
-    scdl_month_btn5.pack_forget()
-    scdl_month_btn6.pack_forget()
-    scdl_month_btn7.pack_forget()
-    scdl_month_btn8.pack_forget()
-    scdl_month_btn9.pack_forget()
-    scdl_month_btn10.pack_forget()
-    scdl_month_btn11.pack_forget()
-    scdl_month_btn12.pack_forget()
-
-    scdl_day_lbl.grid(column=1, row=0)
-    scdl_day_btn1.grid(column=0, row=1)
-    scdl_day_btn2.grid(column=0, row=2)
-    scdl_day_btn3.grid(column=0, row=3)
-    scdl_day_btn4.grid(column=0, row=4)
-    scdl_day_btn5.grid(column=0, row=5)
-    scdl_day_btn6.grid(column=0, row=6)
-    scdl_day_btn7.grid(column=0, row=7)
-    scdl_day_btn8.grid(column=0, row=8)
-    scdl_day_btn9.grid(column=0, row=9)
-    scdl_day_btn10.grid(column=0, row=10)
-    scdl_day_btn11.grid(column=1, row=1)
-    scdl_day_btn12.grid(column=1, row=2)
-    scdl_day_btn13.grid(column=1, row=3)
-    scdl_day_btn14.grid(column=1, row=4)
-    scdl_day_btn15.grid(column=1, row=5)
-    scdl_day_btn16.grid(column=1, row=6)
-    scdl_day_btn17.grid(column=1, row=7)
-    scdl_day_btn18.grid(column=1, row=8)
-    scdl_day_btn19.grid(column=1, row=9)
-    scdl_day_btn20.grid(column=1, row=10)
-    scdl_day_btn21.grid(column=2, row=1)
-    scdl_day_btn22.grid(column=2, row=2)
-    scdl_day_btn23.grid(column=2, row=3)
-    scdl_day_btn24.grid(column=2, row=4)
-    scdl_day_btn25.grid(column=2, row=5)
-    scdl_day_btn26.grid(column=2, row=6)
-    scdl_day_btn27.grid(column=2, row=7)
-    scdl_day_btn28.grid(column=2, row=8)
-    scdl_day_btn29.grid(column=2, row=9)
-    scdl_day_btn30.grid(column=2, row=10)
-    scdl_day_btn31.grid(column=2, row=11)
 
 def scdl_day5():
     scdl_list["before"]["month"] = "5"
@@ -1874,7 +1717,6 @@ def scdl_day6():
     scdl_day_btn28.grid(column=2, row=8)
     scdl_day_btn29.grid(column=2, row=9)
     scdl_day_btn30.grid(column=2, row=10)
-    scdl_day_btn31.grid(column=2, row=11)
 
 def scdl_day7():
     scdl_list["before"]["month"] = "7"
@@ -2024,7 +1866,6 @@ def scdl_day9():
     scdl_day_btn28.grid(column=2, row=8)
     scdl_day_btn29.grid(column=2, row=9)
     scdl_day_btn30.grid(column=2, row=10)
-    scdl_day_btn31.grid(column=2, row=11)
 
 def scdl_day10():
     scdl_list["before"]["month"] = "10"
@@ -2124,7 +1965,6 @@ def scdl_day11():
     scdl_day_btn28.grid(column=2, row=8)
     scdl_day_btn29.grid(column=2, row=9)
     scdl_day_btn30.grid(column=2, row=10)
-    scdl_day_btn31.grid(column=2, row=11)
 
 def scdl_day12():
     scdl_list["before"]["month"] = "12"
@@ -2239,7 +2079,7 @@ def talk():
 
     p = subprocess.Popen(["./julius_start.sh"], stdout=subprocess.PIPE, shell=True)
     pid = str(p.stdout.read().decode('utf-8'))  # juliusのプロセスIDを取得
-    time.sleep(3)
+    sleep(3)
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.connect((host, port))
 
@@ -2402,13 +2242,6 @@ scdl2_fri_btn1 = tk.Button(root, text="電磁気学", font=("", 25), command=scd
 scdl2_fri_btn2 = tk.Button(root, text="文学特論", font=("", 25), command=scdl_fri_finish2)
 scdl2_fri_btn3 = tk.Button(root, text="電子機械設計製作", font=("", 25), command=scdl_fri_finish3)
 
-scdl2_dayofweek_lbl = tk.Label(root, text="曜日を選んでください。", font=("", 25))
-scdl2_day_btn_mon = tk.Button(root, text="月曜日", font=("", 25), command=scdl2_mon)
-scdl2_day_btn_tue = tk.Button(root, text="火曜日", font=("", 25), command=scdl2_tue)
-scdl2_day_btn_wed = tk.Button(root, text="水曜日", font=("", 25), command=scdl2_wed)
-scdl2_day_btn_thu = tk.Button(root, text="木曜日", font=("", 25), command=scdl2_thu)
-scdl2_day_btn_fri = tk.Button(root, text="金曜日", font=("", 25), command=scdl2_fri)
-
 scdl2_day_lbl = tk.Label(root, text="日を選んでください。", font=("", 25))
 scdl2_day_btn1 = tk.Button(root, text="1日", font=("", 25), command=scdl2_dayofweek1)
 scdl2_day_btn2 = tk.Button(root, text="2日", font=("", 25), command=scdl2_dayofweek2)
@@ -2481,13 +2314,6 @@ scdl_thu_btn3 = tk.Button(root, text="電子制御工学実験", font=("", 25), 
 scdl_fri_btn1 = tk.Button(root, text="電磁気学", font=("", 25), command=scdl2_year_fri1)
 scdl_fri_btn2 = tk.Button(root, text="文学特論", font=("", 25), command=scdl2_year_fri2)
 scdl_fri_btn3 = tk.Button(root, text="電子機械設計製作", font=("", 25), command=scdl2_year_fri3)
-
-scdl_dayofweek_lbl = tk.Label(root, text="曜日を選んでください。", font=("", 25))
-scdl_day_btn_mon = tk.Button(root, text="月曜日", font=("", 25), command=scdl_mon)
-scdl_day_btn_tue = tk.Button(root, text="火曜日", font=("", 25), command=scdl_tue)
-scdl_day_btn_wed = tk.Button(root, text="水曜日", font=("", 25), command=scdl_wed)
-scdl_day_btn_thu = tk.Button(root, text="木曜日", font=("", 25), command=scdl_thu)
-scdl_day_btn_fri = tk.Button(root, text="金曜日", font=("", 25), command=scdl_fri)
 
 scdl_day_lbl = tk.Label(root, text="日を選んでください。", font=("", 25))
 scdl_day_btn1 = tk.Button(root, text="1日", font=("", 25), command=scdl_dayofweek1)
