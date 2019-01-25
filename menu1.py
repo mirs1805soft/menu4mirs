@@ -2110,7 +2110,7 @@ def talk():
                         outwav = ['-ow','open_jtalk.wav']
                         cmd = open_jtalk + mech + htsvoice + voice_speed + outwav
                         c = subprocess.Popen(cmd, stdin = subprocess.PIPE)
-                        c.stdin.write(b"おはよう")
+                        c.stdin.write("おはよう".encode("utf-8"))
                         c.stdin.close()
                         c.wait()
                         aplay = ['aplay','-q','open_jtalk.wav']
@@ -2130,7 +2130,7 @@ def talk():
                         outwav = ['-ow','open_jtalk.wav']
                         cmd = open_jtalk + mech + htsvoice + voice_speed + outwav
                         c = subprocess.Popen(cmd, stdin = subprocess.PIPE)
-                        c.stdin.write(b"こんにちは")
+                        c.stdin.write("こんにちは".encode("utf-8"))
                         c.stdin.close()
                         c.wait()
                         aplay = ['aplay','-q','open_jtalk.wav']
@@ -2150,7 +2150,7 @@ def talk():
                         outwav = ['-ow','open_jtalk.wav']
                         cmd = open_jtalk + mech + htsvoice + voice_speed + outwav
                         c = subprocess.Popen(cmd, stdin = subprocess.PIPE)
-                        c.stdin.write(b"こんばんは")
+                        c.stdin.write("こんばんは".encode("utf-8"))
                         c.stdin.close()
                         c.wait()
                         aplay = ['aplay','-q','open_jtalk.wav']
@@ -2181,7 +2181,7 @@ def talk():
                     if wait == 10:
                         print("")
                         wait = 0
-                    elif:
+                    else:
                         wait += 1
 
                 data = ""
