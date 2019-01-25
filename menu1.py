@@ -2072,7 +2072,9 @@ def talk():
 
     voice_subject_u1 = scdl_list["before"]["year"] + "年" + scdl_list["before"]["month"] + "月" + scdl_list["before"]["day"] + "日" + scdl_list["before"]["dayofweek"] + "曜日の" + scdl_list["before"]["subject"] + "が"
     voice_subject_b1 = voice_subject_u1.encode("utf-8")
-    voice_subject_u2 = scdl_list["after"]["year"] + "年" + scdl_list["after"]["month"] + "月" + scdl_list["after"]["day"] + "日" + scdl_list["after"]["dayofweek"] + "曜日の" + scdl_list["after"]["subject"] + "と交換です。"
+    voice_subject_u2 = scdl_list["after"]["year"] + "年" + scdl_list["after"]["month"] + "月" + scdl_list["after"]["day"] + "日" + scdl_list["after"]["dayofweek"] + "曜日の" + scdl_list["after"]["subject"]
+    voice_subject_b2 = voice_subject_u2.encode("utf-8")
+    voice_subject_u3 = "と交換です。"
     voice_subject_b2 = voice_subject_u2.encode("utf-8")
     #voicetalk = "sudo echo '" + voice1 + "' | sudo open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp.wav"
 
@@ -2179,9 +2181,9 @@ def talk():
                         wr = subprocess.Popen(aplay)
                         print("aplay1 end")
 
-                        print("sleep start")
-                        sleep(5)
-                        print("sleep end")
+                        print("sleep1 start")
+                        sleep(1)
+                        print("sleep1 end")
 
                         c = subprocess.Popen(cmd, stdin = subprocess.PIPE)
                         c.stdin.write(voice_subject_b2)
@@ -2191,6 +2193,19 @@ def talk():
                         print("aplay2 start")
                         wr = subprocess.Popen(aplay)
                         print("aplay2 end")
+
+                        print("sleep2 start")
+                        sleep(1)
+                        print("sleep2 end")
+
+                        c = subprocess.Popen(cmd, stdin = subprocess.PIPE)
+                        c.stdin.write(voice_subject_b1)
+                        c.stdin.close()
+                        c.wait()
+                        aplay = ["aplay", "-q", "open_jtalk.wav"]
+                        print("aplay3 start")
+                        wr = subprocess.Popen(aplay)
+                        print("aplay3 end")
 
                         killword = "よてい"
                         flag = True
