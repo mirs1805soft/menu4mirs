@@ -2182,7 +2182,7 @@ def talk():
                         print("aplay1 end")
 
                         print("sleep1 start")
-                        sleep(4)
+                        sleep(5)
                         print("sleep1 end")
 
                         c = subprocess.Popen(cmd, stdin = subprocess.PIPE)
