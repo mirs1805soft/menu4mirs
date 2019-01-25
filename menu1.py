@@ -9,7 +9,7 @@ import random
 import numpy as np
 from numpy.random import *
 from time import *
-from datetime import *
+from datetime import datetime
 
 def scdl_finish():
     subprocess.call("sudo rm schedule.json".split())
@@ -2078,7 +2078,7 @@ def talk():
     port = 10500
 
     p = subprocess.Popen(["./julius_start.sh"], stdout=subprocess.PIPE, shell=True)
-    pid = str(p.stdout.read().decode('utf-8'))  # juliusのプロセスIDを取得
+    pid = str(p.stdout.read().decode("utf-8"))  # juliusのプロセスIDを取得
     sleep(3)
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.connect((host, port))
@@ -2089,89 +2089,89 @@ def talk():
     flag = False
 
     while True:
-        if '</RECOGOUT>\n.' in data:
+        if "</RECOGOUT>\n." in data:
             #data = data + sock.recv(1024)
             strTemp = ""
-            for line in data.split('\n'):
+            for line in data.split("\n"):
                 index = line.find('WORD="')
                 if index != -1:
                     line = line[index+6:line.find('"',index+6)]
                     strTemp += str(line)
 
-                elif strTemp == 'おはよう':
-                    if killword != 'おはよう':
-                        print("Result: " + strTemp)
+                elif strTemp == "おはよう":
+                    if killword != "おはよう":
+                        print("Result:" + strTemp)
                         #subprocess.call("sudo echo 'あいうえお' | sudo open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp.wav".split())
                         #subprocess.call('aplay ./open_jtalk_tmp.wav'.split())
-                        open_jtalk = ['open_jtalk']
-                        mech = ['-x','/var/lib/mecab/dic/open-jtalk/naist-jdic']
-                        htsvoice = ['-m','/usr/share/hts-voice/miku/miku.htsvoice']
-                        voice_speed = ['-r','1.0']
-                        outwav = ['-ow','open_jtalk.wav']
+                        open_jtalk = ["open_jtalk"]
+                        mech = ["-x", "/var/lib/mecab/dic/open-jtalk/naist-jdic"]
+                        htsvoice = ["-m", "/usr/share/hts-voice/miku/miku.htsvoice"]
+                        voice_speed = ["-r", "1.0"]
+                        outwav = ["-ow", "open_jtalk.wav"]
                         cmd = open_jtalk + mech + htsvoice + voice_speed + outwav
                         c = subprocess.Popen(cmd, stdin = subprocess.PIPE)
                         c.stdin.write("おはよう".encode("utf-8"))
                         c.stdin.close()
                         c.wait()
-                        aplay = ['aplay','-q','open_jtalk.wav']
+                        aplay = ["aplay", "-q", "open_jtalk.wav"]
                         wr = subprocess.Popen(aplay)
                         killword = "おはよう"
                         flag = True
 
-                elif strTemp == 'こんにちは':
+                elif strTemp == "こんにちは":
                     if killword != "こんにちは":
-                        print("Result: " + strTemp)
+                        print("Result:" + strTemp)
                         #subprocess.call('echo "こんにちは" | open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp.wav'.split())
                         #subprocess.call('aplay ./open_jtalk_tmp.wav'.split())
-                        open_jtalk = ['open_jtalk']
-                        mech = ['-x','/var/lib/mecab/dic/open-jtalk/naist-jdic']
-                        htsvoice = ['-m','/usr/share/hts-voice/miku/miku.htsvoice']
-                        voice_speed = ['-r','1.0']
-                        outwav = ['-ow','open_jtalk.wav']
+                        open_jtalk = ["open_jtalk"]
+                        mech = ["-x", "/var/lib/mecab/dic/open-jtalk/naist-jdic"]
+                        htsvoice = ["-m", "/usr/share/hts-voice/miku/miku.htsvoice"]
+                        voice_speed = ["-r", "1.0"]
+                        outwav = ["-ow", "open_jtalk.wav"]
                         cmd = open_jtalk + mech + htsvoice + voice_speed + outwav
                         c = subprocess.Popen(cmd, stdin = subprocess.PIPE)
                         c.stdin.write("こんにちは".encode("utf-8"))
                         c.stdin.close()
                         c.wait()
-                        aplay = ['aplay','-q','open_jtalk.wav']
+                        aplay = ["aplay", "-q", "open_jtalk.wav"]
                         wr = subprocess.Popen(aplay)
                         killword = "こんにちは"
                         flag = True
 
-                elif strTemp == 'こんばんは':
+                elif strTemp == "こんばんは":
                     if killword != "こんばんは":
                         print("Result: " + strTemp)
                         #subprocess.call('echo "こんばんは" | open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp.wav'.split())
                         #subprocess.call('aplay ./open_jtalk_tmp.wav'.split())
-                        open_jtalk = ['open_jtalk']
-                        mech = ['-x','/var/lib/mecab/dic/open-jtalk/naist-jdic']
-                        htsvoice = ['-m','/usr/share/hts-voice/miku/miku.htsvoice']
-                        voice_speed = ['-r','1.0']
-                        outwav = ['-ow','open_jtalk.wav']
+                        open_jtalk = ["open_jtalk"]
+                        mech = ["-x", "/var/lib/mecab/dic/open-jtalk/naist-jdic"]
+                        htsvoice = ["-m", "/usr/share/hts-voice/miku/miku.htsvoice"]
+                        voice_speed = ["-r", "1.0"]
+                        outwav = ["-ow", "open_jtalk.wav"]
                         cmd = open_jtalk + mech + htsvoice + voice_speed + outwav
                         c = subprocess.Popen(cmd, stdin = subprocess.PIPE)
                         c.stdin.write("こんばんは".encode("utf-8"))
                         c.stdin.close()
                         c.wait()
-                        aplay = ['aplay','-q','open_jtalk.wav']
+                        aplay = ["aplay", "-q", "open_jtalk.wav"]
                         wr = subprocess.Popen(aplay)
                         killword = "こんばんは"
                         flag = True
 
-                elif strTemp == 'よていおしえて':
+                elif strTemp == "よていおしえて":
                     if killword != "よていおしえて":
                         print("Result: " + strTemp)
-                        open_jtalk = ['open_jtalk']
-                        mech = ['-x','/var/lib/mecab/dic/open-jtalk/naist-jdic']
-                        htsvoice = ['-m','/usr/share/hts-voice/miku/miku.htsvoice']
-                        voice_speed = ['-r','1.0']
-                        outwav = ['-ow','open_jtalk.wav']
+                        open_jtalk = ["open_jtalk"]
+                        mech = ["-x", "/var/lib/mecab/dic/open-jtalk/naist-jdic"]
+                        htsvoice = ["-m", "/usr/share/hts-voice/miku/miku.htsvoice"]
+                        voice_speed = ["-r", "1.0"]
+                        outwav = ["-ow", "open_jtalk.wav"]
                         cmd = open_jtalk + mech + htsvoice + voice_speed + outwav
                         c = subprocess.Popen(cmd, stdin = subprocess.PIPE)
                         c.stdin.write(voice_subject_b)
                         c.stdin.close()
                         c.wait()
-                        aplay = ['aplay','-q','open_jtalk.wav']
+                        aplay = ["aplay", "-q", "open_jtalk.wav"]
                         wr = subprocess.Popen(aplay)
                         killword = "よていおしえて"
                         flag = True
@@ -2189,7 +2189,7 @@ def talk():
                 if flag == True:
                     break
         else:
-            data += str(sock.recv(1024).decode('utf-8'))
+            data += str(sock.recv(1024).decode("utf-8"))
 
         if flag == True:
             break
