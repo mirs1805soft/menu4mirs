@@ -2075,7 +2075,7 @@ def talk():
     voice_subject_u2 = scdl_list["after"]["year"] + "年" + scdl_list["after"]["month"] + "月" + scdl_list["after"]["day"] + "日" + scdl_list["after"]["dayofweek"] + "曜日の" + scdl_list["after"]["subject"]
     voice_subject_b2 = voice_subject_u2.encode("utf-8")
     voice_subject_u3 = "と交換です。"
-    voice_subject_b2 = voice_subject_u2.encode("utf-8")
+    voice_subject_b3 = voice_subject_u3.encode("utf-8")
     #voicetalk = "sudo echo '" + voice1 + "' | sudo open_jtalk -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow ./open_jtalk_tmp.wav"
 
     host = "localhost"
@@ -2199,7 +2199,7 @@ def talk():
                         print("sleep2 end")
 
                         c = subprocess.Popen(cmd, stdin = subprocess.PIPE)
-                        c.stdin.write(voice_subject_b1)
+                        c.stdin.write(voice_subject_b3)
                         c.stdin.close()
                         c.wait()
                         aplay = ["aplay", "-q", "open_jtalk.wav"]
