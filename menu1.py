@@ -15,11 +15,11 @@ def scdl_finish():
     subprocess.call("sudo rm schedule.json".split())
     subprocess.call("sudo touch schedule.json".split())
     subprocess.call("sudo chmod 777 schedule.json".split())
-    write_file = open("schedule.json", "w")
+    write_file = open("/home/pi/menu4mirs/schedule.json", "w")
     json.dump(scdl_list, write_file, indent=4)
 
     root.destroy()
-    subprocess.call("python3 menu2.py".split())
+    subprocess.call("python3 /home/pi/menu4mirs/menu2.py".split())
     #scdl_finish_btn.pack_forget()
     #scdl_cancel_btn.pack_forget()
 
@@ -31,7 +31,7 @@ def scdl_finish():
 
 def scdl_cancel():
     root.destroy()
-    subprocess.call("python3 menu2.py".split())
+    subprocess.call("python3 /home/pi/menu4mirs/menu2.py".split())
 
     #scdl_btn = tk.Button(root, text="スケジュール編集", font=("", 25), command=scdl_year)
     #scdl_btn.pack(pady=250)#(anchor = "n")
@@ -2067,7 +2067,7 @@ def scdl_year():
     scdl_year_btn2.pack()
 
 def talk():
-    read_file = open("schedule.json", "r")
+    read_file = open("/home/pi/menu4mirs/schedule.json", "r")
     scdl_list = json.load(read_file)
 
     voice_subject_u1 = scdl_list["before"]["year"] + "年" + scdl_list["before"]["month"] + "月" + scdl_list["before"]["day"] + "日" + scdl_list["before"]["dayofweek"] + "曜日の" + scdl_list["before"]["subject"] + "が"
@@ -2081,7 +2081,7 @@ def talk():
     host = "localhost"
     port = 10500
 
-    p = subprocess.Popen(["./julius_start.sh"], stdout=subprocess.PIPE, shell=True)
+    p = subprocess.Popen(["/home/pi/menu4mirs/julius_start.sh"], stdout=subprocess.PIPE, shell=True)
     pid = str(p.stdout.read().decode("utf-8"))  # juliusのプロセスIDを取得
     sleep(1)
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -2111,13 +2111,13 @@ def talk():
                         mech = ["-x", "/var/lib/mecab/dic/open-jtalk/naist-jdic"]
                         htsvoice = ["-m", "/usr/share/hts-voice/miku/miku.htsvoice"]
                         voice_speed = ["-r", "1.0"]
-                        outwav = ["-ow", "open_jtalk.wav"]
+                        outwav = ["-ow", "/home/pi/menu4mirs/open_jtalk.wav"]
                         cmd = open_jtalk + mech + htsvoice + voice_speed + outwav
                         c = subprocess.Popen(cmd, stdin = subprocess.PIPE)
                         c.stdin.write("おはよう".encode("utf-8"))
                         c.stdin.close()
                         c.wait()
-                        aplay = ["aplay", "-q", "open_jtalk.wav"]
+                        aplay = ["aplay", "-q", "/home/pi/menu4mirs/open_jtalk.wav"]
                         wr = subprocess.Popen(aplay)
                         killword = "おはよう"
                         flag = True
@@ -2131,13 +2131,13 @@ def talk():
                         mech = ["-x", "/var/lib/mecab/dic/open-jtalk/naist-jdic"]
                         htsvoice = ["-m", "/usr/share/hts-voice/miku/miku.htsvoice"]
                         voice_speed = ["-r", "1.0"]
-                        outwav = ["-ow", "open_jtalk.wav"]
+                        outwav = ["-ow", "/home/pi/menu4mirs/open_jtalk.wav"]
                         cmd = open_jtalk + mech + htsvoice + voice_speed + outwav
                         c = subprocess.Popen(cmd, stdin = subprocess.PIPE)
                         c.stdin.write("こんにちは".encode("utf-8"))
                         c.stdin.close()
                         c.wait()
-                        aplay = ["aplay", "-q", "open_jtalk.wav"]
+                        aplay = ["aplay", "-q", "/home/pi/menu4mirs/open_jtalk.wav"]
                         wr = subprocess.Popen(aplay)
                         killword = "こんにちは"
                         flag = True
@@ -2151,13 +2151,13 @@ def talk():
                         mech = ["-x", "/var/lib/mecab/dic/open-jtalk/naist-jdic"]
                         htsvoice = ["-m", "/usr/share/hts-voice/miku/miku.htsvoice"]
                         voice_speed = ["-r", "1.0"]
-                        outwav = ["-ow", "open_jtalk.wav"]
+                        outwav = ["-ow", "/home/pi/menu4mirs/open_jtalk.wav"]
                         cmd = open_jtalk + mech + htsvoice + voice_speed + outwav
                         c = subprocess.Popen(cmd, stdin = subprocess.PIPE)
                         c.stdin.write("こんばんは".encode("utf-8"))
                         c.stdin.close()
                         c.wait()
-                        aplay = ["aplay", "-q", "open_jtalk.wav"]
+                        aplay = ["aplay", "-q", "/home/pi/menu4mirs/open_jtalk.wav"]
                         wr = subprocess.Popen(aplay)
                         killword = "こんばんは"
                         flag = True
@@ -2169,14 +2169,14 @@ def talk():
                         mech = ["-x", "/var/lib/mecab/dic/open-jtalk/naist-jdic"]
                         htsvoice = ["-m", "/usr/share/hts-voice/miku/miku.htsvoice"]
                         voice_speed = ["-r", "1.0"]
-                        outwav = ["-ow", "open_jtalk.wav"]
+                        outwav = ["-ow", "/home/pi/menu4mirs/open_jtalk.wav"]
                         cmd = open_jtalk + mech + htsvoice + voice_speed + outwav
 
                         c = subprocess.Popen(cmd, stdin = subprocess.PIPE)
                         c.stdin.write(voice_subject_b1)
                         c.stdin.close()
                         c.wait()
-                        aplay = ["aplay", "-q", "open_jtalk.wav"]
+                        aplay = ["aplay", "-q", "/home/pi/menu4mirs/open_jtalk.wav"]
                         print("aplay1 start")
                         wr = subprocess.Popen(aplay)
                         print("aplay1 end")
@@ -2189,7 +2189,7 @@ def talk():
                         c.stdin.write(voice_subject_b2)
                         c.stdin.close()
                         c.wait()
-                        aplay = ["aplay", "-q", "open_jtalk.wav"]
+                        aplay = ["aplay", "-q", "/home/pi/menu4mirs/open_jtalk.wav"]
                         print("aplay2 start")
                         wr = subprocess.Popen(aplay)
                         print("aplay2 end")
@@ -2202,7 +2202,7 @@ def talk():
                         c.stdin.write(voice_subject_b3)
                         c.stdin.close()
                         c.wait()
-                        aplay = ["aplay", "-q", "open_jtalk.wav"]
+                        aplay = ["aplay", "-q", "/home/pi/menu4mirs/open_jtalk.wav"]
                         print("aplay3 start")
                         wr = subprocess.Popen(aplay)
                         print("aplay3 end")
