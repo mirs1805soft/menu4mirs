@@ -11,6 +11,46 @@ from numpy.random import *
 from time import *
 from datetime import datetime
 
+def say_scdl_before_finish():
+    voice_subject_u1 = scdl_list["before"]["year"] + "年" + scdl_list["before"]["month"] + "月" + scdl_list["before"]["day"] + "日" + scdl_list["before"]["dayofweek"] + "曜日の" + scdl_list["before"]["subject"] + "が"
+    voice_subject_b1 = voice_subject_u1.encode("utf-8")
+    voice_subject_u2 = scdl_list["after"]["year"] + "年" + scdl_list["after"]["month"] + "月" + scdl_list["after"]["day"] + "日" + scdl_list["after"]["dayofweek"] + "曜日の" + scdl_list["after"]["subject"]
+    voice_subject_b2 = voice_subject_u2.encode("utf-8")
+    voice_subject_u3 = "と交換です。"
+    voice_subject_b3 = voice_subject_u3.encode("utf-8")
+
+    open_jtalk = ["open_jtalk"]
+    mech = ["-x", "/var/lib/mecab/dic/open-jtalk/naist-jdic"]
+    htsvoice = ["-m", "/usr/share/hts-voice/miku/miku.htsvoice"]
+    voice_speed = ["-r", "1.0"]
+    outwav = ["-ow", "open_jtalk.wav"]
+    cmd = open_jtalk + mech + htsvoice + voice_speed + outwav
+
+    c = subprocess.Popen(cmd, stdin = subprocess.PIPE)
+    c.stdin.write(voice_subject_b1)
+    c.stdin.close()
+    c.wait()
+    aplay = ["aplay", "-q", "open_jtalk.wav"]
+    wr = subprocess.Popen(aplay)
+
+    sleep(5)
+
+    c = subprocess.Popen(cmd, stdin = subprocess.PIPE)
+    c.stdin.write(voice_subject_b2)
+    c.stdin.close()
+    c.wait()
+    aplay = ["aplay", "-q", "open_jtalk.wav"]
+    wr = subprocess.Popen(aplay)
+
+    sleep(4)
+
+    c = subprocess.Popen(cmd, stdin = subprocess.PIPE)
+    c.stdin.write(voice_subject_b3)
+    c.stdin.close()
+    c.wait()
+    aplay = ["aplay", "-q", "open_jtalk.wav"]
+    wr = subprocess.Popen(aplay)
+
 def scdl_finish():
     subprocess.call("sudo rm schedule.json".split())
     subprocess.call("sudo touch schedule.json".split())
@@ -47,6 +87,8 @@ def scdl_mon_finish1():
     scdl2_mon_btn2.pack_forget()
     scdl2_mon_btn3.pack_forget()
 
+    say_scdl_before_finish()
+
     scdl_finish_btn.pack(pady=250)
     scdl_cancel_btn.pack()
 
@@ -57,6 +99,8 @@ def scdl_mon_finish2():
     scdl2_mon_btn1.pack_forget()
     scdl2_mon_btn2.pack_forget()
     scdl2_mon_btn3.pack_forget()
+
+    say_scdl_before_finish()
 
     scdl_finish_btn.pack(pady=250)
     scdl_cancel_btn.pack()
@@ -69,6 +113,8 @@ def scdl_mon_finish3():
     scdl2_mon_btn2.pack_forget()
     scdl2_mon_btn3.pack_forget()
 
+    say_scdl_before_finish()
+
     scdl_finish_btn.pack(pady=250)
     scdl_cancel_btn.pack()
 
@@ -79,6 +125,8 @@ def scdl_tue_finish1():
     scdl2_tue_btn1.pack_forget()
     scdl2_tue_btn2.pack_forget()
     scdl2_tue_btn3.pack_forget()
+
+    say_scdl_before_finish()
 
     scdl_finish_btn.pack(pady=250)
     scdl_cancel_btn.pack()
@@ -91,6 +139,8 @@ def scdl_tue_finish2():
     scdl2_tue_btn2.pack_forget()
     scdl2_tue_btn3.pack_forget()
 
+    say_scdl_before_finish()
+
     scdl_finish_btn.pack(pady=250)
     scdl_cancel_btn.pack()
 
@@ -102,6 +152,8 @@ def scdl_tue_finish3():
     scdl2_tue_btn2.pack_forget()
     scdl2_tue_btn3.pack_forget()
 
+    say_scdl_before_finish()
+
     scdl_finish_btn.pack(pady=250)
     scdl_cancel_btn.pack()
 
@@ -112,6 +164,8 @@ def scdl_wed_finish1():
     scdl2_wed_btn1.pack_forget()
     scdl2_wed_btn2.pack_forget()
 
+    say_scdl_before_finish()
+
     scdl_finish_btn.pack(pady=250)
     scdl_cancel_btn.pack()
 
@@ -121,6 +175,8 @@ def scdl_wed_finish2():
     scdl2_subject_lbl.pack_forget()
     scdl2_wed_btn1.pack_forget()
     scdl2_wed_btn2.pack_forget()
+
+    say_scdl_before_finish()
 
     scdl_finish_btn.pack(pady=250)
     scdl_cancel_btn.pack()
@@ -133,6 +189,8 @@ def scdl_thu_finish1():
     scdl2_thu_btn2.pack_forget()
     scdl2_thu_btn3.pack_forget()
 
+    say_scdl_before_finish()
+
     scdl_finish_btn.pack(pady=250)
     scdl_cancel_btn.pack()
 
@@ -143,6 +201,8 @@ def scdl_thu_finish2():
     scdl2_thu_btn1.pack_forget()
     scdl2_thu_btn2.pack_forget()
     scdl2_thu_btn3.pack_forget()
+
+    say_scdl_before_finish()
 
     scdl_finish_btn.pack(pady=250)
     scdl_cancel_btn.pack()
@@ -155,6 +215,8 @@ def scdl_thu_finish3():
     scdl2_thu_btn2.pack_forget()
     scdl2_thu_btn3.pack_forget()
 
+    say_scdl_before_finish()
+
     scdl_finish_btn.pack(pady=250)
     scdl_cancel_btn.pack()
 
@@ -165,6 +227,8 @@ def scdl_fri_finish1():
     scdl2_fri_btn1.pack_forget()
     scdl2_fri_btn2.pack_forget()
     scdl2_fri_btn3.pack_forget()
+
+    say_scdl_before_finish()
 
     scdl_finish_btn.pack(pady=250)
     scdl_cancel_btn.pack()
@@ -177,6 +241,8 @@ def scdl_fri_finish2():
     scdl2_fri_btn2.pack_forget()
     scdl2_fri_btn3.pack_forget()
 
+    say_scdl_before_finish()
+
     scdl_finish_btn.pack(pady=250)
     scdl_cancel_btn.pack()
 
@@ -187,6 +253,8 @@ def scdl_fri_finish3():
     scdl2_fri_btn1.pack_forget()
     scdl2_fri_btn2.pack_forget()
     scdl2_fri_btn3.pack_forget()
+
+    say_scdl_before_finish()
 
     scdl_finish_btn.pack(pady=250)
     scdl_cancel_btn.pack()
