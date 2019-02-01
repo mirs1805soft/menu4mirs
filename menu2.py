@@ -50,7 +50,7 @@ def say_scdl_before_finish():
     c.wait()
     aplay = ["aplay", "-q", "open_jtalk.wav"]
     wr = subprocess.Popen(aplay)
-
+    
 def scdl_finish():
     subprocess.call("sudo rm schedule.json".split())
     subprocess.call("sudo touch schedule.json".split())
