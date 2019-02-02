@@ -2327,8 +2327,8 @@ root.title("Menu")
 root.attributes("-zoomed", "1")
 
 # 土・日曜日
-donichi_lbl1 = tk.Label(root, text="  土・日曜日なので授業はありません。  ", font=("", 15), width=20)
-donichi_lbl2 = tk.Label(root, text="  平日を選んで下さい。  ", font=("", 15), width=20)
+donichi_lbl1 = tk.Label(root, text=" 土・日曜日なので授業はありません。 ", font=("", 15), width=20)
+donichi_lbl2 = tk.Label(root, text=" 　　　　平日を選んで下さい　　　　。  ", font=("", 15), width=20)
 donichi_btn = tk.Button(root, text="はい", font=("", 20), command=donichi_finish)
 
 # あとで表示するオブジェクト
