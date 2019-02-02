@@ -357,7 +357,7 @@ def scdl2_dayofweek():
     elif a.weekday() == 4:
         scdl2_fri()
     else:
-        print("Error row:317")
+        donichi()
 
 def scdl2_dayofweek1():
     scdl_list["after"]["day"] = "1"
@@ -2327,16 +2327,16 @@ root.title("Menu")
 root.attributes("-zoomed", "1")
 
 # 土・日曜日
-donichi_lbl1 = tk.Label(root, text="-土・日曜日なので授業はありません-", font=("", 15), width=20)
-donichi_lbl2 = tk.Label(root, text="ーーーー平日を選んで下さいーーーー", font=("", 15), width=20)
-donichi_btn = tk.Button(root, text="はい", font=("", 20), command=donichi_finish)
+donichi_lbl1 = tk.Label(root, text="　　土日なので授業はありません　　", font=("", 15), width=20)
+donichi_lbl2 = tk.Label(root, text="　　　　平日を選んで下さい　　　　", font=("", 15), width=20)
+donichi_btn = tk.Button(root, text="　　　　　　　はい　　　　　　　　", font=("", 20), command=donichi_finish)
 
 # あとで表示するオブジェクト
 scdl_finish_btn = tk.Button(root, text="編集完了", font=("", 25), command=scdl_finish)
 scdl_cancel_btn = tk.Button(root, text="キャンセル", font=("", 25), command=scdl_cancel)
 
 # after
-scdl2_subject_lbl = tk.Label(root, text="教科を選んでください。", font=("", 25), width=20)
+scdl2_subject_lbl = tk.Label(root, text="教科を選んでください", font=("", 25), width=20)
 
 scdl2_mon_btn1 = tk.Button(root, text="工学数理演習", font=("", 25), command=scdl_mon_finish1)
 scdl2_mon_btn2 = tk.Button(root, text="社会と工学", font=("", 25), command=scdl_mon_finish2)
@@ -2357,7 +2357,7 @@ scdl2_fri_btn1 = tk.Button(root, text="電磁気学", font=("", 25), command=scd
 scdl2_fri_btn2 = tk.Button(root, text="文学特論", font=("", 25), command=scdl_fri_finish2)
 scdl2_fri_btn3 = tk.Button(root, text="電子機械設計製作", font=("", 25), command=scdl_fri_finish3)
 
-scdl2_day_lbl = tk.Label(root, text="日を選んでください。", font=("", 25))
+scdl2_day_lbl = tk.Label(root, text="日を選んでください", font=("", 25))
 scdl2_day_btn1 = tk.Button(root, text="1日", font=("", 25), command=scdl2_dayofweek1)
 scdl2_day_btn2 = tk.Button(root, text="2日", font=("", 25), command=scdl2_dayofweek2)
 scdl2_day_btn3 = tk.Button(root, text="3日", font=("", 25), command=scdl2_dayofweek3)
@@ -2390,7 +2390,7 @@ scdl2_day_btn29 = tk.Button(root, text="29日", font=("", 25), command=scdl2_day
 scdl2_day_btn30 = tk.Button(root, text="30日", font=("", 25), command=scdl2_dayofweek30)#
 scdl2_day_btn31 = tk.Button(root, text="31日", font=("", 25), command=scdl2_dayofweek31)
 
-scdl2_month_lbl = tk.Label(root, text="月を選んでください。", font=("", 25))
+scdl2_month_lbl = tk.Label(root, text="月を選んでください", font=("", 25))
 scdl2_month_btn1 = tk.Button(root, text="1月", font=("", 25), command=scdl2_day1)
 scdl2_month_btn2 = tk.Button(root, text="2月", font=("", 25), command=scdl2_day2)
 scdl2_month_btn3 = tk.Button(root, text="3月", font=("", 25), command=scdl2_day3)
@@ -2404,12 +2404,12 @@ scdl2_month_btn10 = tk.Button(root, text="10月", font=("", 25), command=scdl2_d
 scdl2_month_btn11 = tk.Button(root, text="11月", font=("", 25), command=scdl2_day11)
 scdl2_month_btn12 = tk.Button(root, text="12月", font=("", 25), command=scdl2_day12)
 
-scdl2_year_lbl = tk.Label(root, text="年を選んでください。", font=("", 25))
+scdl2_year_lbl = tk.Label(root, text="年を選んでください", font=("", 25))
 scdl2_year_btn1 = tk.Button(root, text="2019", font=("", 25), command=scdl2_month2019)
 scdl2_year_btn2 = tk.Button(root, text="2020", font=("", 25), command=scdl2_month2020)
 
 # before
-scdl_subject_lbl = tk.Label(root, text="教科を選んでください。", font=("", 25), width=20)
+scdl_subject_lbl = tk.Label(root, text="教科を選んでください", font=("", 25), width=20)
 
 scdl_mon_btn1 = tk.Button(root, text="工学数理演習", font=("", 25), command=scdl2_year_mon1)
 scdl_mon_btn2 = tk.Button(root, text="社会と工学", font=("", 25), command=scdl2_year_mon2)
@@ -2430,7 +2430,7 @@ scdl_fri_btn1 = tk.Button(root, text="電磁気学", font=("", 25), command=scdl
 scdl_fri_btn2 = tk.Button(root, text="文学特論", font=("", 25), command=scdl2_year_fri2)
 scdl_fri_btn3 = tk.Button(root, text="電子機械設計製作", font=("", 25), command=scdl2_year_fri3)
 
-scdl_day_lbl = tk.Label(root, text="日を選んでください。", font=("", 25))
+scdl_day_lbl = tk.Label(root, text="日を選んでください", font=("", 25))
 scdl_day_btn1 = tk.Button(root, text="1日", font=("", 25), command=scdl_dayofweek1)
 scdl_day_btn2 = tk.Button(root, text="2日", font=("", 25), command=scdl_dayofweek2)
 scdl_day_btn3 = tk.Button(root, text="3日", font=("", 25), command=scdl_dayofweek3)
@@ -2463,7 +2463,7 @@ scdl_day_btn29 = tk.Button(root, text="29日", font=("", 25), command=scdl_dayof
 scdl_day_btn30 = tk.Button(root, text="30日", font=("", 25), command=scdl_dayofweek30)#
 scdl_day_btn31 = tk.Button(root, text="31日", font=("", 25), command=scdl_dayofweek31)
 
-scdl_month_lbl = tk.Label(root, text="月を選んでください。", font=("", 25))
+scdl_month_lbl = tk.Label(root, text="月を選んでください", font=("", 25))
 scdl_month_btn1 = tk.Button(root, text="1月", font=("", 25), command=scdl_day1)
 scdl_month_btn2 = tk.Button(root, text="2月", font=("", 25), command=scdl_day2)
 scdl_month_btn3 = tk.Button(root, text="3月", font=("", 25), command=scdl_day3)
@@ -2477,7 +2477,7 @@ scdl_month_btn10 = tk.Button(root, text="10月", font=("", 25), command=scdl_day
 scdl_month_btn11 = tk.Button(root, text="11月", font=("", 25), command=scdl_day11)
 scdl_month_btn12 = tk.Button(root, text="12月", font=("", 25), command=scdl_day12)
 
-scdl_year_lbl = tk.Label(root, text="年を選んでください。", font=("", 25))
+scdl_year_lbl = tk.Label(root, text="年を選んでください", font=("", 25))
 scdl_year_btn1 = tk.Button(root, text="2019", font=("", 25), command=scdl_month2019)
 scdl_year_btn2 = tk.Button(root, text="2020", font=("", 25), command=scdl_month2020)
 
