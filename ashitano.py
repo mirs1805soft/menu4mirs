@@ -10,7 +10,7 @@ voice_speed = ["-r", "1.0"]
 outwav = ["-ow", "/home/pi/menu4mirs/open_jtalk.wav"]
 cmd = open_jtalk + mech + htsvoice + voice_speed + outwav
 c = subprocess.Popen(cmd, stdin = subprocess.PIPE)
-c.stdin.write("おはよう".encode("utf-8"))
+c.stdin.write("あしたのじゅぎょうはどいつご、こうがくすうり、でんしせいぎょこうがくじっけん、だよ、わすれないでね".encode("utf-8"))
 c.stdin.close()
 c.wait()
 aplay = ["aplay", "-q", "/home/pi/menu4mirs/open_jtalk.wav"]
