@@ -98,7 +98,7 @@ def scdl_mon_finish1():
 
     say_scdl_before_finish()
 
-    scdl_finish_btn.pack(pady=250)
+    scdl_finish_btn.pack(pady=10)
     scdl_cancel_btn.pack()
 
 def scdl_mon_finish2():
@@ -111,7 +111,7 @@ def scdl_mon_finish2():
 
     say_scdl_before_finish()
 
-    scdl_finish_btn.pack(pady=250)
+    scdl_finish_btn.pack(pady=10)
     scdl_cancel_btn.pack()
 
 def scdl_mon_finish3():
@@ -124,7 +124,7 @@ def scdl_mon_finish3():
 
     say_scdl_before_finish()
 
-    scdl_finish_btn.pack(pady=250)
+    scdl_finish_btn.pack(pady=10)
     scdl_cancel_btn.pack()
 
 def scdl_tue_finish1():
@@ -137,7 +137,7 @@ def scdl_tue_finish1():
 
     say_scdl_before_finish()
 
-    scdl_finish_btn.pack(pady=250)
+    scdl_finish_btn.pack(pady=10)
     scdl_cancel_btn.pack()
 
 def scdl_tue_finish2():
@@ -150,7 +150,7 @@ def scdl_tue_finish2():
 
     say_scdl_before_finish()
 
-    scdl_finish_btn.pack(pady=250)
+    scdl_finish_btn.pack(pady=10)
     scdl_cancel_btn.pack()
 
 def scdl_tue_finish3():
@@ -163,7 +163,7 @@ def scdl_tue_finish3():
 
     say_scdl_before_finish()
 
-    scdl_finish_btn.pack(pady=250)
+    scdl_finish_btn.pack(pady=10)
     scdl_cancel_btn.pack()
 
 def scdl_wed_finish1():
@@ -175,7 +175,7 @@ def scdl_wed_finish1():
 
     say_scdl_before_finish()
 
-    scdl_finish_btn.pack(pady=250)
+    scdl_finish_btn.pack(pady=10)
     scdl_cancel_btn.pack()
 
 def scdl_wed_finish2():
@@ -187,7 +187,7 @@ def scdl_wed_finish2():
 
     say_scdl_before_finish()
 
-    scdl_finish_btn.pack(pady=250)
+    scdl_finish_btn.pack(pady=10)
     scdl_cancel_btn.pack()
 
 def scdl_thu_finish1():
@@ -200,7 +200,7 @@ def scdl_thu_finish1():
 
     say_scdl_before_finish()
 
-    scdl_finish_btn.pack(pady=250)
+    scdl_finish_btn.pack(pady=10)
     scdl_cancel_btn.pack()
 
 def scdl_thu_finish2():
@@ -213,7 +213,7 @@ def scdl_thu_finish2():
 
     say_scdl_before_finish()
 
-    scdl_finish_btn.pack(pady=250)
+    scdl_finish_btn.pack(pady=10)
     scdl_cancel_btn.pack()
 
 def scdl_thu_finish3():
@@ -226,7 +226,7 @@ def scdl_thu_finish3():
 
     say_scdl_before_finish()
 
-    scdl_finish_btn.pack(pady=250)
+    scdl_finish_btn.pack(pady=10)
     scdl_cancel_btn.pack()
 
 def scdl_fri_finish1():
@@ -239,7 +239,7 @@ def scdl_fri_finish1():
 
     say_scdl_before_finish()
 
-    scdl_finish_btn.pack(pady=250)
+    scdl_finish_btn.pack(pady=10)
     scdl_cancel_btn.pack()
 
 def scdl_fri_finish2():
@@ -252,7 +252,7 @@ def scdl_fri_finish2():
 
     say_scdl_before_finish()
 
-    scdl_finish_btn.pack(pady=250)
+    scdl_finish_btn.pack(pady=10)
     scdl_cancel_btn.pack()
 
 def scdl_fri_finish3():
@@ -265,7 +265,7 @@ def scdl_fri_finish3():
 
     say_scdl_before_finish()
 
-    scdl_finish_btn.pack(pady=250)
+    scdl_finish_btn.pack(pady=10)
     scdl_cancel_btn.pack()
 
 def scdl2_mon():
