@@ -11,6 +11,15 @@ from numpy.random import *
 from time import *
 from datetime import datetime
 
+def donichi_finish():
+    root.destroy()
+    subprocess.call("python3 /home/pi/menu4mirs/menu2.py".split())
+
+def donichi():
+    donichi_lbl1.pack(pady=5)
+    donichi_lbl2.pack(pady=5)
+    donichi_btn.pack(pady=10)
+
 def say_scdl_before_finish():
     voice_subject_u1 = scdl_list["before"]["year"] + "年" + scdl_list["before"]["month"] + "月" + scdl_list["before"]["day"] + "日" + scdl_list["before"]["dayofweek"] + "曜日の" + scdl_list["before"]["subject"] + "が"
     voice_subject_b1 = voice_subject_u1.encode("utf-8")
@@ -255,7 +264,7 @@ def scdl_fri_finish3():
     scdl2_fri_btn3.pack_forget()
 
     say_scdl_before_finish()
-    
+
     scdl_finish_btn.pack(pady=250)
     scdl_cancel_btn.pack()
 
@@ -1365,7 +1374,7 @@ def scdl_dayofweek():
     elif b.weekday() == 4:
         scdl_fri()
     else:
-        print("Error row:1380")
+        donichi()
 
 def scdl_dayofweek1():
     scdl_list["before"]["day"] = "1"
@@ -2316,6 +2325,11 @@ scdl_list = {
 root = tk.Tk()
 root.title("Menu")
 root.attributes("-zoomed", "1")
+
+# 土・日曜日
+donichi_lbl1 = tk.Label(root, text="土・日曜日なので授業はありません。", font=("", 10), width=20)
+donichi_lbl2 = tk.Label(root, text="平日を選んで下さい。", font=("", 10), width=20)
+donichi_btn = tk.Button(root, text="はい", font=("", 20), command=donichi_finish)
 
 # あとで表示するオブジェクト
 scdl_finish_btn = tk.Button(root, text="編集完了", font=("", 25), command=scdl_finish)
